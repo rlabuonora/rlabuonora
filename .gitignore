@@ -1,0 +1,13 @@
+.DS_Store
+
+# Quarto build output and local cache
+_site/
+.quarto/
+
+# Editor and OS cruft
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.tmp.*
