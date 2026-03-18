@@ -1,0 +1,56 @@
+---
+title: Cursos
+listing:
+  - id: cursos-flagship
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    template: ../includes/writing-curated.ejs.md
+    include:
+      access: public
+      tier: flagship
+    sort: "date desc"
+  - id: cursos-featured
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    template: ../includes/writing-curated.ejs.md
+    template-params:
+      empty_message: No hay cursos destacados todavía.
+    include:
+      access: public
+      tier: featured
+    sort: "date desc"
+  - id: cursos-archive
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    template: ../includes/writing-archive.ejs.md
+    include:
+      access: public
+      tier:
+        - standard
+        - archive
+    sort: "date desc"
+---
+
+# Cursos
+
+Esta sección reúne cursos, talleres y materiales de aprendizaje publicados en el sitio.
+
+Por ahora, los cursos se tratan como posts: usan la misma estructura editorial liviana, pero viven en su propia colección.
+
+## Cursos Flagship
+
+::: {#cursos-flagship}
+:::
+
+## Cursos Destacados
+
+::: {#cursos-featured}
+:::
+
+## Archivo / Todos los Cursos
+
+::: {#cursos-archive}
+:::

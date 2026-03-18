@@ -1,0 +1,18 @@
+---
+title: Projects
+listing:
+  contents:
+    - "*.qmd"
+    - "!index.qmd"
+  sort: "year desc"
+  type: default
+  fields: [title, summary, year]
+---
+
+# Projects
+
+This section collects project work, case studies, and build notes.
+
+<!-- Future logic:
+Filter this collection to only render or list items with `access: public`.
+Use `content_type` and `tier` to shape grouping and prominence. -->

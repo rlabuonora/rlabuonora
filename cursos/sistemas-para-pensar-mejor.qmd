@@ -1,0 +1,17 @@
+---
+title: Sistemas para Pensar Mejor
+slug: sistemas-para-pensar-mejor
+summary: Un curso breve sobre cómo diseñar sistemas personales de notas, criterios y herramientas para aprender con más claridad.
+date: 2026-03-18
+content_type: learn
+access: public
+tier: flagship
+tags:
+  - systems
+  - learning
+  - notes
+---
+
+Este es un stub inicial para un curso enfocado en construir sistemas personales de trabajo intelectual.
+
+Puede crecer hacia módulos, lecturas y ejercicios, pero por ahora fija el lugar del curso dentro de la colección.

@@ -1,0 +1,15 @@
+---
+title: Learning to Design for an Archive
+slug: learning-to-design-for-an-archive
+summary: Notes on structuring a personal site so early posts can remain useful as the body of work expands.
+date: 2025-11-18
+content_type: learn
+access: public
+tier: archive
+tags:
+  - archive
+  - systems
+  - personal-web
+---
+
+This is an archive writing example used to demonstrate the compact all-writing section.

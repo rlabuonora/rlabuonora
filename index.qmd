@@ -1,0 +1,93 @@
+---
+title: Home
+body-classes: home-page
+page-layout: full
+listing:
+  - id: home-flagship-projects
+    contents:
+      - projects/*.qmd
+      - "!projects/index.qmd"
+    template: includes/home-projects.ejs.md
+    include:
+      access: public
+      tier: flagship
+    sort: "year desc"
+  - id: home-flagship-writing
+    contents:
+      - writing/*.qmd
+      - "!writing/index.qmd"
+    template: includes/home-writing.ejs.md
+    include:
+      access: public
+      tier: flagship
+    sort: "date desc"
+  - id: home-flagship-cursos
+    contents:
+      - cursos/*.qmd
+      - "!cursos/index.qmd"
+    template: includes/home-writing.ejs.md
+    template-params:
+      empty_message: No hay cursos destacados todavía.
+    include:
+      access: public
+      tier: flagship
+    sort: "date desc"
+---
+
+<div class="home-shell">
+<div class="home-hero-grid">
+<div class="home-hero-copy">
+<h1>Rafael La Buonora</h1>
+<p class="home-hero-deck">Acá programo, aprendo y escribo.</p>
+<p>Este sitio reúne proyectos, aprendizajes y notas sobre las cosas a las que les dedico tiempo y energía.</p>
+</div>
+
+<div class="home-hero-figure">
+<img src="assets/mvd-hero.png" alt="Montevideo skyline line drawing" class="home-hero-image">
+</div>
+</div>
+
+<section class="home-section">
+<div class="home-section-header">
+<h2>Proyectos</h2>
+<a href="/projects/index.html" class="home-section-link">Ver todo</a>
+</div>
+
+<div class="home-projects-showcase">
+<div class="home-project-emblem">
+<img src="assets/processed/raster/emblems/drafting-compass.png" alt="Drafting compass illustration" class="home-project-emblem-image">
+</div>
+
+<div class="home-projects-listing">
+::: {#home-flagship-projects}
+:::
+</div>
+</div>
+</section>
+
+<div class="home-lower-grid">
+<section class="home-section home-writing-section">
+<div class="home-section-header">
+<h2>Posts</h2>
+<a href="/writing/index.html" class="home-section-link">Ver todo</a>
+</div>
+
+::: {#home-flagship-writing}
+:::
+</section>
+
+<section class="home-section home-courses-section">
+<div class="home-section-header">
+<h2>Cursos</h2>
+<a href="/cursos/index.html" class="home-section-link">Ver todo</a>
+</div>
+
+::: {#home-flagship-cursos}
+:::
+</section>
+</div>
+</div>
+
+<!-- Homepage curation rule:
+Only items with `access: public` and `tier: flagship` should appear here.
+Control homepage appearance by editing those fields in each item front matter. -->

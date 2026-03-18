@@ -1,0 +1,22 @@
+---
+title: Page Not Found
+body-classes: not-found-page
+---
+
+<div class="not-found-shell">
+<div class="not-found-code">404</div>
+
+# This page could not be found
+
+The page you were looking for does not exist, may have moved, or is not available publicly.
+
+<div class="not-found-links">
+<a href="/index.html">Home</a>
+<a href="/projects/index.html">Projects</a>
+<a href="/writing/index.html">Writing</a>
+</div>
+</div>
+
+<!-- Future logic:
+If private or bounded content gets referenced publicly, route users here or to
+a more explicit access state page. -->

@@ -1,0 +1,9 @@
+---
+title: About
+---
+
+# About
+
+This page is a simple placeholder for biography, approach, and contact details.
+
+It can later expand into a more editorial profile without changing the site structure.

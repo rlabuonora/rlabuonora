@@ -1,0 +1,47 @@
+---
+title: Data Forge Toolkit
+slug: data-forge-toolkit
+summary: A modular toolkit for structuring, cleaning, and reshaping messy project data into usable working materials.
+year: 2026
+content_type: build
+access: public
+tier: flagship
+tags:
+  - data
+  - tooling
+  - systems
+image: assets/processed/raster/emblems/drafting-compass.png
+links:
+  demo: https://example.com/data-forge-toolkit
+  repo: https://github.com/example/data-forge-toolkit
+  blog: https://example.com/writing/data-forge-toolkit-notes
+# Projects should keep `content_type: build`.
+# Set `tier: flagship` plus `access: public` to feature this item on the homepage.
+---
+
+## Overview
+
+Data Forge Toolkit is a project stub for a reusable working system that turns inconsistent source material into clean, structured project data.
+
+## Context / Problem
+
+Project work often accumulates in notes, spreadsheets, exports, and partial files that are difficult to combine. The main challenge is reducing friction without overbuilding the workflow.
+
+## What I Built
+
+The toolkit combines small parsing, normalization, and export utilities so raw material can be shaped into something stable enough for analysis, publishing, or iteration.
+
+## Visuals
+
+![Placeholder project visual](../assets/processed/raster/emblems/drafting-compass.png)
+
+Use this section for screenshots, diagrams, mockups, or process images.
+
+## What I Learned
+
+Useful project tooling usually depends more on clear structure than on complexity. The biggest improvement often comes from making a workflow legible and repeatable.
+
+## Related Links
+
+- Future writing can document the design choices behind the toolkit.
+- The demo, repo, and blog links in front matter appear automatically near the top of the page.

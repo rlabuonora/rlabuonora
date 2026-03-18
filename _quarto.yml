@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "cursos/**/*.qmd"
+    - "projects/**/*.qmd"
+    - "writing/**/*.qmd"
+
+website:
+  title: "Personal Site"
+  navbar:
+    title: false
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: projects/index.qmd
+        text: Proyectos
+      - href: cursos/index.qmd
+        text: Cursos
+      - href: writing/index.qmd
+        text: Posts
+      - href: about.qmd
+        text: Acerca
+  page-footer:
+    left: "Public site scaffolded in Quarto. Editorial access and tier metadata are in place for future filtering."
+
+format:
+  html:
+    theme: cosmo
+    css: styles/site.css
+    include-in-header: includes/head.html
+    toc: false
+    filters:
+      - filters/content-layout.lua
+
+# Future editorial model:
+# - keep `content_type`, `access`, and `tier` in item front matter
+# - add listing/pipeline logic so only `access: public` items are rendered publicly
+# - tier can later drive homepage prominence and collection ordering

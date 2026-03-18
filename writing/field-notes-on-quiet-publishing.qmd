@@ -1,0 +1,15 @@
+---
+title: Field Notes on Quiet Publishing
+slug: field-notes-on-quiet-publishing
+summary: A short reflection on making publishing habits sustainable by lowering the pressure around each piece.
+date: 2026-02-02
+content_type: reflect
+access: public
+tier: featured
+tags:
+  - publishing
+  - reflection
+  - practice
+---
+
+This is a featured writing example used to demonstrate the Writing index structure.

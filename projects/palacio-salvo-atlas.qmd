@@ -1,0 +1,48 @@
+---
+title: Palacio Salvo Atlas
+slug: palacio-salvo-atlas
+summary: A visual index of architectural observations, references, and process notes around Palacio Salvo.
+year: 2026
+content_type: build
+access: public
+tier: flagship
+tags:
+  - architecture
+  - mapping
+  - editorial
+image: assets/mvd.png
+links:
+  demo: https://example.com/palacio-salvo-atlas
+  repo: https://github.com/example/palacio-salvo-atlas
+  blog: https://example.com/writing/palacio-salvo-atlas-process
+  video: https://example.com/video/palacio-salvo-atlas
+# Projects should keep `content_type: build`.
+# Set `tier: flagship` plus `access: public` to feature this item on the homepage.
+---
+
+## Overview
+
+Palacio Salvo Atlas is a structured project page rather than a generic article. It should read like a case study with clear sections, context, and outcomes.
+
+## Context / Problem
+
+The challenge was to organize architectural observations, references, and process documentation into a format that remained navigable instead of turning into a loose folder of notes.
+
+## What I Built
+
+I built a visual index that treats the building as both subject matter and organizing device. The project combines references, mapping, and editorial structure so the work can be scanned quickly and expanded later.
+
+## Visuals
+
+![Placeholder project visual](../assets/mvd.png)
+
+Use this section for screenshots, diagrams, mockups, or process images.
+
+## What I Learned
+
+Projects like this benefit from a strong editorial spine. Without it, the archive grows faster than the reader's ability to understand what matters.
+
+## Related Links
+
+- Process notes will eventually connect to a related writing piece.
+- The repo, demo, blog, and video links in front matter appear automatically near the top of the page.
