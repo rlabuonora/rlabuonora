@@ -3,6 +3,7 @@
 # Quarto build output and local cache
 _site/
 .quarto/
+legacy/
 node_modules/
 artifacts/design-review/
 artifacts/playwright-mcp/

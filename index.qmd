@@ -53,18 +53,8 @@ listing:
 <a href="/proyectos/index.html" class="home-section-link">Ver todo</a>
 </div>
 
-<div class="home-projects-showcase">
-<div class="home-project-emblem">
-<div class="site-illustration-paper site-illustration-paper--square site-illustration-paper--emblem">
-<img src="assets/processed/raster/emblems/drafting-compass.png" alt="Drafting compass illustration" class="home-project-emblem-image site-illustration-image site-illustration-image--emblem">
-</div>
-</div>
-
-<div class="home-projects-listing">
 ::: {#home-flagship-projects}
 :::
-</div>
-</div>
 </section>
 
 <div class="home-lower-grid">
@@ -88,10 +78,6 @@ listing:
 :::
 </section>
 </div>
-</div>
-
-<div class="home-page-footer">
-{{< include includes/site-footer.html >}}
 </div>
 
 <!-- Homepage curation rule:

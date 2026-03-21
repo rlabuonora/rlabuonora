@@ -1,0 +1,46 @@
+---
+title: Patrones de uso de modelos de lenguaje
+slug: patrones-de-uso-de-modelos-de-lenguaje
+summary: "Cuatro patrones practicos para usar modelos de lenguaje: como obrero, maestro, coach y espejo."
+date: 2026-01-01
+lang: es
+content_type: reflect
+access: public
+tier: flagship
+tags:
+  - llm
+  - ai
+  - workflows
+---
+
+Los modelos de lenguaje son la tecnologia que estabamos esperando. No sabemos si vinieron a salvarnos o a confirmar nuestra obsolecencia pero es imposible permanecer ajeno a lo que estan haciendo y preguntarse que implican para el futuro. En este posteo anoto **cuatro patrones** que uso seguido.
+
+## El Minion
+
+Algunos les dicen por favor y gracias, pero solo los usan para evitar tareas ingratas. Claude Code esta prendiendo fuego X estos dias, encaja perfecto en este patron: hace el trabajo duro, repetitivo y poco glamoroso sin quejarse. Yo pase hace poco de copiar y pegar codigo de ChatGPT a Codex en Visual Studio y quede de cara.
+
+En el pasado hubo varios intentos de crear tecnologias que permitieran programar con lenguaje natural, pero todas fracasaron. Todas las tecnologias que conozco para darle instrucciones a la computadora se basan en abstracciones a niveles mucho mas bajos que el lenguaje natural.
+
+Estas abstracciones nos llevaron lejos. Algunas son bastante interesantes, otras parecen instrumentos de tortura, pero todas implicaban un esfuerzo considerable de aprendizaje antes de usarlas productivamente. El plan era que ademas de aprender a leer y escribir en la escuela nos iban a enseniar a programar y ese iba a ser el futuro. Parece que esta vez es diferente. Esta claro que los modelos pueden desarrollar software util sin que el usuario toque una sola linea de codigo. Java, JavaScript, Python y HTML parecen haber seguido el camino de Assembler y C.
+
+De a poco me vuelven ideas de proyectos que se me fueron ocurriendo con los anios pero nunca programe porque para cuando tenia configurado el ambiente de desarrollo y bajado las librerias que necesitaba habian pasado dos horas y el fuego estaba apagado. Ahora todas esas ideas parecen ser viables.
+
+## El Maestro
+
+Aca el objetivo no es *hacer*, sino absorber. La tecnologia *legacy* tiene un sesgo fuerte hacia el consumo pasivo de contenido. Pasamos horas mirando YouTube, escuchando podcasts y leyendo, pero la senial de feedback es debil y es facil caer en la ilusion de que aprendemos solo porque estamos entretenidos.
+
+Los modelos de lenguaje permiten invertir ese balance, dandole al usuario un rol activo en la recepcion de mensajes complejos o documentos extensos. En este patron, el modelo sondea al usuario para identificar su nivel real de comprension y lo promptea para que reconstruya el contenido del mensaje por si mismo, asegurando asi que puede generar, y no solo reconocer, la informacion presente en el documento original.
+
+## El coach
+
+El objetivo de este patron es entrenar al usuario para mejorar su performance en una habilidad especifica. Esta habilidad mejora en base a sesiones de entrenamiento con niveles de exigencia calibrados precisamente al nivel de dificultad necesario para que el usuario mejore la performance en la sesion siguiente.
+
+El modelo sugiere actividades y objetivos para las sesiones y el usuario reporta metricas especificas para obtener feedback. Este patron es especialmente util en dominios donde la mejora es lenta y acumulativa, y es facil perder la motivacion cuando vas a la deriva. El modelo funciona como un sistema de navegacion: te ayuda a mantener rumbo y a evaluar si estas avanzando hacia el o no.
+
+## El espejo
+
+Este patron no apunta a producir ni a entrenar, sino a pensar mejor. El modelo funciona como un espejo que aclara tus ideas, detecta inconsistencias, te obliga a elaborar y estimula integracion entre pensamientos que tenias sueltos.
+
+No reemplaza el juicio del usuario: lo afila. Estimula la elaboracion e integracion de pensamientos. Obviamente este es el patron que menos uso y esta aca solo a sugerencia de ChatGPT.
+
+Tambien estaria faltando una conclusion que enlace todo y cierre pero que le vamos a hacer, esto es internet.

@@ -18,21 +18,20 @@ function formatMonthYear(value) {
 <% for (const item of items) { %>
   <article class="home-writing-item">
     <div class="home-writing-date"><%- formatMonthYear(item.date) %></div>
-    <h3 class="home-writing-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+    <div class="content-heading-with-badge">
+      <h3 class="home-writing-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+      <% if (item.lang === "es" || item.lang === "en") { %>
+      <span class="lang-badge lang-badge--<%- item.lang %>"><%- item.lang.toUpperCase() %></span>
+      <% } %>
+    </div>
     <% if (item.summary) { %>
     <p class="home-writing-summary"><%- item.summary %></p>
     <% } %>
     <div class="home-writing-meta">
-      <% if (item.content_type) { %>
-      <span><%- item.content_type %></span>
-      <% } %>
       <% if (item.tags && item.tags.length) { %>
         <% for (const tag of item.tags.slice(0, 2)) { %>
       <span><%- tag %></span>
         <% } %>
-      <% } %>
-      <% if (item.date) { %>
-      <span><%- new Date(item.date).getUTCFullYear() %></span>
       <% } %>
     </div>
   </article>

@@ -1,0 +1,40 @@
+---
+title: El Juego de la Vida
+slug: el-juego-de-la-vida
+summary: Implementacion interactiva del automata celular de Conway, enfocada en exploracion visual, reglas emergentes y una experiencia clara en navegador.
+year: 2017
+lang: es
+content_type: build
+access: public
+tier: flagship
+tags:
+  - react
+  - ui/ux
+image: assets/processed/raster/emblems/library.png
+---
+
+## El proyecto
+
+El Juego de la Vida es una version interactiva del automata celular de Conway llevada al navegador. La idea fue construir una experiencia simple de usar, pero lo bastante expresiva como para invitar a experimentar con patrones, velocidad y comportamiento emergente.
+
+## Contexto y problema
+
+Muchos proyectos basados en simulacion muestran bien la logica, pero no siempre hacen facil jugar con ella. El objetivo aca fue acercar una idea matematica conocida a una interfaz mas directa, donde observar cambios en la grilla fuera tan natural como intervenirla.
+
+## Que construimos
+
+Construimos una interfaz web que permite iniciar, pausar, reiniciar y modificar la simulacion en tiempo real. El sistema traduce reglas simples de vecindad en una experiencia visual donde el interes aparece por acumulacion, repeticion y sorpresa.
+
+## Visuales
+
+![Placeholder project visual](../assets/processed/raster/emblems/library.png)
+
+Este espacio puede reemplazarse luego por capturas del tablero, estados iniciales interesantes y ejemplos de patrones.
+
+## Aprendizajes
+
+En proyectos interactivos de este tipo, la claridad de la interfaz importa tanto como la logica interna. Cuando las reglas son simples, la diferencia entre una demo olvidable y una buena experiencia suele estar en el ritmo de la interaccion.
+
+## Enlaces relacionados
+
+- Agrega enlaces de demo o repositorio en el front matter cuando quieras mostrarlos.

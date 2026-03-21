@@ -27,8 +27,6 @@ listing:
 </section>
 </div>
 
-{{< include ../includes/site-footer.html >}}
-
 <!-- Posts index rule:
 Only `access: public` items are listed here.
 Homepage visibility is controlled separately by `tier: flagship`. -->

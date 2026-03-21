@@ -27,7 +27,12 @@ const fallbackImage = templateParams?.fallback_image || "";
       <time><%- metaField === "date" ? formatDisplayDate(metaValue) : metaValue %></time>
     </p>
     <% } %>
-    <h2 class="editorial-archive-title"><a href="<%- item.path %>"><%- item.title %></a></h2>
+    <div class="content-heading-with-badge">
+      <h2 class="editorial-archive-title"><a href="<%- item.path %>"><%- item.title %></a></h2>
+      <% if (item.lang === "es" || item.lang === "en") { %>
+      <span class="lang-badge lang-badge--<%- item.lang %>"><%- item.lang.toUpperCase() %></span>
+      <% } %>
+    </div>
     <% if (item.summary) { %>
     <p class="editorial-archive-summary"><%- item.summary %></p>
     <% } %>

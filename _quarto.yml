@@ -8,9 +8,8 @@ project:
     - "posts/**/*.qmd"
 
 website:
-  title: "Personal Site"
+  title: "Rafael La Buonora"
   navbar:
-    logo: assets/raw/emblems/emblem.png
     title: false
     left:
       - href: index.qmd
@@ -23,14 +22,13 @@ website:
         text: Posts
       - href: about.qmd
         text: Acerca
-  page-footer:
-    left: "Rafael La Buonora 2026"
 
 format:
   html:
     theme: cosmo
     css: styles/site.css
     include-in-header: includes/head.html
+    include-after-body: includes/site-footer-body.html
     toc: false
     filters:
       - filters/content-layout.lua

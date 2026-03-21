@@ -13,7 +13,12 @@
       <time class="writing-card-date"><%- item.date %></time>
       <% } %>
     </div>
-    <h3 class="writing-card-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+    <div class="content-heading-with-badge">
+      <h3 class="writing-card-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+      <% if (item.lang === "es" || item.lang === "en") { %>
+      <span class="lang-badge lang-badge--<%- item.lang %>"><%- item.lang.toUpperCase() %></span>
+      <% } %>
+    </div>
     <% if (item.summary) { %>
     <p class="writing-card-summary"><%- item.summary %></p>
     <% } %>

@@ -28,7 +28,12 @@ function normalizeImagePath(value) {
       <% if (item.year) { %>
       <p class="projects-featured-date"><%- item.year %></p>
       <% } %>
-      <h3 class="projects-featured-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+      <div class="content-heading-with-badge">
+        <h3 class="projects-featured-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+        <% if (item.lang === "es" || item.lang === "en") { %>
+        <span class="lang-badge lang-badge--<%- item.lang %>"><%- item.lang.toUpperCase() %></span>
+        <% } %>
+      </div>
       <% if (item.summary) { %>
       <p class="projects-featured-summary"><%- item.summary %></p>
       <% } %>

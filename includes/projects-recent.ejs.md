@@ -11,7 +11,12 @@
       <% } %>
     </div>
     <div class="projects-recent-copy">
-      <h3 class="projects-recent-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+      <div class="content-heading-with-badge">
+        <h3 class="projects-recent-title"><a href="<%- item.path %>"><%- item.title %></a></h3>
+        <% if (item.lang === "es" || item.lang === "en") { %>
+        <span class="lang-badge lang-badge--<%- item.lang %>"><%- item.lang.toUpperCase() %></span>
+        <% } %>
+      </div>
       <% if (item.summary) { %>
       <p class="projects-recent-summary"><%- item.summary %></p>
       <% } %>

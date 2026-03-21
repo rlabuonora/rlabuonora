@@ -26,5 +26,3 @@ listing:
 :::
 </section>
 </div>
-
-{{< include ../includes/site-footer.html >}}

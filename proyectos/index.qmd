@@ -28,8 +28,6 @@ listing:
 </section>
 </div>
 
-{{< include ../includes/site-footer.html >}}
-
 <!-- Projects index rule:
 Only `access: public` items are listed here.
 Homepage prominence is controlled separately by `tier: flagship`. -->

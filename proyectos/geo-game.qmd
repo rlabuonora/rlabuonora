@@ -1,0 +1,160 @@
+---
+title: Geo Game
+slug: geo-game
+summary: An interactive geography game built with React, focused on data-driven play, fast feedback, and a cleaner UI/UX loop.
+year: 2026
+lang: en
+content_type: build
+access: public
+tier: flagship
+tags:
+  - react
+  - data
+  - ed-tech
+image: assets/processed/raster/emblems/compass-rose.png
+---
+
+The other weekend, my son asked a question: what are India’s neighbors? I turned it into a game quickly. The game is a react app and a geography dataset. Vibe coding helped me find the product fast, and next day we were playing it. Here is the first version:
+
+
+I got to a usable game quite fast thanks to Codex, it would have taken many more hours to get this project going before vibe coding.
+
+
+I recently heard Jeremy Howard talk about how vibe coding alienates the programmer from the code he produces. He also went into how notebooks are valuable because they let you interact directly with objects in the computer. 
+
+Vibe coding focuses on inputs and outputs trad coding focuses on producing beautiful code. Of course I don’t look at the code when vibe coding, I spent most of my time looking at the current version of the app I am building. Howard’s dives into an example of a weird bug in the ipython kernel, and how only a couple of people in the word can understand that code, and how vibe coding is not a good tool for solving those problems.
+
+Vibe coding frees the programmer from the complexity of wiring up tools, 
+
+Vibe coding can be a great tool to create UI that allows us to explore datasets AND ALSO theoretical models/simulations.
+
+
+
+
+When focusing on the code, I barely look at the working app. When vibe coding, i spend all my time looking at the app.
+
+In this case, the tool was for interacting with a data set. This project changes what is UI and what the object in the computer’s memory is with respect to what he meant. In his framing, vibecoding allows us to separate ourselves from the object. This project shows we can vibe code better ui’s that notebooks to interact with objects in memory.
+
+
+
+now the interesting question is: what game design actually teaches this well?
+
+
+Vibe coding helped me discover the game quickly. But once the prototype existed, a different craft problem appeared: educational design. Fast iteration got me to a playable artifact. Now I need a more deliberate approach to make it a better teacher.
+Right now the game may reward:
+quick guessing
+
+
+recognition
+
+
+clicking
+
+
+competitive energy
+
+
+But effective teaching may require more of:
+recall
+
+
+repetition
+
+
+spaced exposure
+
+
+feedback on mistakes
+
+
+reinforcing relationships
+
+
+revisiting confusion
+
+
+
+Good questions to explore
+You do not need to solve them all now. They can become the research/design agenda.
+1. What exactly should the player learn?
+Is the goal:
+identify countries on a map
+
+
+learn neighbors
+
+
+build regional intuition
+
+
+remember border relationships
+
+
+improve recall under pressure
+
+
+2. What kind of memory is the game training?
+Is it mostly:
+recognition
+
+
+spatial memory
+
+
+relational memory
+
+
+recall
+
+
+3. Does the feedback teach?
+When the player is wrong, what helps more:
+just showing the correct answer
+
+
+highlighting the clicked country
+
+
+showing the true neighbors
+
+
+immediately retrying
+
+
+revisiting the same item later
+
+
+
+4. What is the right loop?
+Should the player:
+click a country by name
+
+
+identify all neighbors of a country
+
+
+distinguish neighbors from non-neighbors
+
+
+build chains by region
+
+
+revisit previous mistakes
+
+
+
+
+Current strengths
+What is already fun or promising? It works. We played and had a nice time.
+Current weaknesses
+What limits the teaching value? The UI/UX does not optimize learning. Neither the encoding nor the retrieval process are optimized. 
+Learning goal
+What exactly should the player come away knowing? This is an interesting neuroscience question. How does the brain represents maps? What is the relation between being able to point to a country on a map and knowing which are the neighbors of a given country? Can you picture the frontiers of 2 countries in a map?
+Redesign ideas
+What mechanics might teach better? How can I optimize the mechanics to maximize learning? 
+
+Redesign the gameplay so it is optimized for learning. Mathematical analysis of the game: the difficulty of the game in not tuned, it is easy to find Brazil, hard to find Camoras. That should be considered for the redesign. 
+
+Also de interaction and the game loop is not optimized to teach. This can definitely benefit from the analysis.
+
+The whole data layer should be redesigned so we can have more data and a richer experience (cities, rivers, roads).
