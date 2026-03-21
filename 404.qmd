@@ -12,8 +12,8 @@ The page you were looking for does not exist, may have moved, or is not availabl
 
 <div class="not-found-links">
 <a href="/index.html">Home</a>
-<a href="/projects/index.html">Projects</a>
-<a href="/writing/index.html">Writing</a>
+<a href="/proyectos/index.html">Proyectos</a>
+<a href="/posts/index.html">Posts</a>
 </div>
 </div>
 

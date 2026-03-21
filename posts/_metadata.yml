@@ -3,4 +3,4 @@ format:
     page-layout: article
     body-classes: writing-page
 
-# Writing pages should preserve a lighter reading width.
+# Post pages should preserve a lighter reading width.

@@ -1,0 +1,48 @@
+Review the attached screenshots of my Quarto site as a design critic focused on refinement, restraint, and coherence.
+
+Assess the work page by page and viewport by viewport. Reference specific screenshots by page and device when making observations.
+
+Focus your review on:
+- layout rhythm and overall compositional balance
+- typography hierarchy, especially the relationship between Fraunces headings and IBM Plex Sans body or UI text
+- spacing, density, and negative space
+- illustration placement, scale, and how illustrations support or disrupt the layout
+- inconsistencies between the homepage and inner pages
+- mobile layout issues, including stacking, cramped spacing, overflow risk, and hierarchy loss
+
+Design language to preserve:
+- minimalist
+- editorial
+- architectural / atlas inspired
+- off-white background
+- thin divider lines
+- calm and highly intentional
+- restrained, quiet visual decisions over attention-seeking ones
+
+Avoid generic product-design or startup-style suggestions. Do not recommend:
+- bright accent colors
+- loud gradients
+- oversized CTA treatments
+- dashboard-like cards
+- trendy app-style UI patterns
+- unnecessary animation or decorative effects
+
+Prioritize improvements that make the site feel:
+- more consistent
+- more legible
+- more disciplined
+- more spacious
+- more intentional
+
+When suggesting changes:
+- keep them restrained and specific
+- favor CSS and markup refinements over redesigns
+- explain why each change improves coherence
+- distinguish between high-priority issues and minor polish
+
+Structure the review as:
+1. Overall assessment
+2. Key issues by page and viewport
+3. Cross-site consistency issues
+4. Mobile-specific issues
+5. Recommended refinements in priority order

@@ -1,0 +1,5 @@
+format:
+  html:
+    body-classes: course-page
+
+# Course pages should share the site navigation treatment used by the main sections.

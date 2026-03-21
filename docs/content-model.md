@@ -2,16 +2,16 @@
 
 This site has two public-facing collections:
 
-- `projects/`
-- `writing/`
+- `proyectos/`
+- `posts/`
 
 Use the same small set of editorial fields across both collections so filtering and promotion stay predictable.
 
 ## Shared Editorial Fields
 
 - `content_type`
-  - `projects/`: always `build`
-  - `writing/`: `learn` or `reflect`
+  - `proyectos/`: always `build`
+  - `posts/`: `learn` or `reflect`
 - `access`
   - `private`: not intended for the public site
   - `bounded`: selectively shareable, but not generally public
@@ -76,7 +76,7 @@ image: assets/example.png
 
 Notes:
 
-- Keep filenames lowercase and hyphenated, for example `projects/example-project.qmd`.
+- Keep filenames lowercase and hyphenated, for example `proyectos/example-project.qmd`.
 - Match the `slug` to the filename unless there is a strong reason not to.
 - Use `summary` for listing pages and cards.
 - Keep `tags` short and stable so they remain usable for future filtering.
@@ -102,7 +102,7 @@ The page will automatically render:
 - a metadata grid
 - a top links block when `links.demo`, `links.repo`, `links.blog`, or `links.video` are present
 
-### Writing
+### Posts
 
 Writing pages render with a lighter reading layout. Keep the body more essay-like and avoid forcing it into a project structure.
 
@@ -117,8 +117,8 @@ Example related metadata:
 ```yaml
 related_project:
   title: Example Project
-  href: /projects/example-project.html
+  href: /proyectos/example-project.html
 related_writing:
   - title: Another Essay
-    href: /writing/another-essay.html
+    href: /posts/another-essay.html
 ```

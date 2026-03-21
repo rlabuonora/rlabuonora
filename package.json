@@ -1,0 +1,14 @@
+{
+  "name": "rlabuonora-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "design:capture": "node scripts/capture-design-screenshots.mjs",
+    "design:capture:live": "node scripts/capture-design-screenshots.mjs --reuse-server",
+    "design:review": "node scripts/capture-design-screenshots.mjs --write-review-prompt"
+  },
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.68",
+    "playwright": "^1.58.2"
+  }
+}

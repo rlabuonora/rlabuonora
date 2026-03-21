@@ -10,14 +10,14 @@ tags:
   - publishing
   - personal-web
   - systems
-image: assets/image.png
+image: assets/processed/raster/posts/compass-rose.png
 related_project:
   title: Palacio Salvo Atlas
-  href: /projects/palacio-salvo-atlas.html
+  href: /proyectos/palacio-salvo-atlas.html
 related_writing:
   - title: Field Notes on Quiet Publishing
-    href: /writing/field-notes-on-quiet-publishing.html
-# Writing should use `content_type: learn` or `content_type: reflect`.
+    href: /posts/field-notes-on-quiet-publishing.html
+# Posts should use `content_type: learn` or `content_type: reflect`.
 # Set `tier: flagship` plus `access: public` to feature this item on the homepage.
 # `image` is optional for this collection.
 ---

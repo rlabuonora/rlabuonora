@@ -2,8 +2,9 @@
 assets/raw/emblems/drafting-compass.png|assets/processed/raster/emblems/drafting-compass.png|1024|0xFBF8F2|270|110|520|770|760|1.08|0.010|0.040
 assets/raw/emblems/palacio-salvo.png|assets/processed/raster/emblems/palacio-salvo.png|1024|0xF7F3EC|0|250|1024|360|900|1.06|0.012|0.030
 assets/raw/emblems/magnifying-glass.png|assets/processed/raster/emblems/magnifying-glass.png|1024|0xF7F3EC|170|230|700|430|760|1.08|0.010|0.035
-assets/raw/posts/compass-rose.png|assets/processed/raster/posts/compass-rose.png|1024|0xF7F3EC|165|135|695|760|780|1.07|0.008|0.030
+assets/raw/emblems/compass-rose.png|assets/processed/raster/posts/compass-rose.png|1024|0xF7F3EC|165|135|695|760|780|1.07|0.008|0.030
 assets/raw/emblems/compass-rose.png|assets/processed/raster/emblems/compass-rose.png|1024|0xF7F3EC|145|105|735|780|805|1.07|0.008|0.030
 assets/raw/emblems/salvo1.png|assets/processed/raster/emblems/salvo1.png|1024|0xF7F3EC|150|20|720|920|835|1.07|0.010|0.035
 assets/raw/emblems/salvo2.png|assets/processed/raster/emblems/salvo2.png|1024|0xF7F3EC|85|35|860|885|865|1.07|0.010|0.035
 assets/raw/emblems/library.png|assets/processed/raster/emblems/library.png|1024|0xF7F3EC|95|85|1315|765|915|1.07|0.010|0.035
+assets/raw/posts/hamlet.png|assets/processed/raster/posts/hamlet.png|1024|0xF7F3EC|175|145|645|620|760|1.07|0.008|0.030

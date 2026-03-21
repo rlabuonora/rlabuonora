@@ -4,26 +4,27 @@ project:
   render:
     - "*.qmd"
     - "cursos/**/*.qmd"
-    - "projects/**/*.qmd"
-    - "writing/**/*.qmd"
+    - "proyectos/**/*.qmd"
+    - "posts/**/*.qmd"
 
 website:
   title: "Personal Site"
   navbar:
+    logo: assets/raw/emblems/emblem.png
     title: false
     left:
       - href: index.qmd
         text: Inicio
-      - href: projects/index.qmd
+      - href: proyectos/index.qmd
         text: Proyectos
       - href: cursos/index.qmd
         text: Cursos
-      - href: writing/index.qmd
+      - href: posts/index.qmd
         text: Posts
       - href: about.qmd
         text: Acerca
   page-footer:
-    left: "Public site scaffolded in Quarto. Editorial access and tier metadata are in place for future filtering."
+    left: "Rafael La Buonora 2026"
 
 format:
   html:

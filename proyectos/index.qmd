@@ -1,0 +1,35 @@
+---
+title: Projects
+page-layout: full
+body-classes: projects-index-page
+listing:
+  - id: projects-archive
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    template: ../includes/editorial-archive.ejs.md
+    template-params:
+      empty_message: No public projects published yet.
+      meta_field: year
+    include:
+      access: public
+    sort: "year desc"
+---
+
+<div class="editorial-index-shell">
+<section class="editorial-index-hero">
+<h1>Projects</h1>
+<p class="editorial-index-deck">A collection of projects, case studies, and build notes on systems, tools, and visual research.</p>
+</section>
+
+<section class="editorial-index-archive">
+::: {#projects-archive}
+:::
+</section>
+</div>
+
+{{< include ../includes/site-footer.html >}}
+
+<!-- Projects index rule:
+Only `access: public` items are listed here.
+Homepage prominence is controlled separately by `tier: flagship`. -->

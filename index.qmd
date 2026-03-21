@@ -5,8 +5,8 @@ page-layout: full
 listing:
   - id: home-flagship-projects
     contents:
-      - projects/*.qmd
-      - "!projects/index.qmd"
+      - proyectos/*.qmd
+      - "!proyectos/index.qmd"
     template: includes/home-projects.ejs.md
     include:
       access: public
@@ -14,8 +14,8 @@ listing:
     sort: "year desc"
   - id: home-flagship-writing
     contents:
-      - writing/*.qmd
-      - "!writing/index.qmd"
+      - posts/*.qmd
+      - "!posts/index.qmd"
     template: includes/home-writing.ejs.md
     include:
       access: public
@@ -42,20 +42,22 @@ listing:
 <p>Este sitio reúne proyectos, aprendizajes y notas sobre las cosas a las que les dedico tiempo y energía.</p>
 </div>
 
-<div class="home-hero-figure">
-<img src="assets/mvd-hero.png" alt="Montevideo skyline line drawing" class="home-hero-image">
+<div class="home-hero-figure site-illustration site-illustration--skyline">
+<img src="assets/raw/mvd-hero.png" alt="Montevideo skyline line drawing" class="home-hero-image site-illustration-image site-illustration-image--skyline">
 </div>
 </div>
 
 <section class="home-section">
 <div class="home-section-header">
 <h2>Proyectos</h2>
-<a href="/projects/index.html" class="home-section-link">Ver todo</a>
+<a href="/proyectos/index.html" class="home-section-link">Ver todo</a>
 </div>
 
 <div class="home-projects-showcase">
 <div class="home-project-emblem">
-<img src="assets/processed/raster/emblems/drafting-compass.png" alt="Drafting compass illustration" class="home-project-emblem-image">
+<div class="site-illustration-paper site-illustration-paper--square site-illustration-paper--emblem">
+<img src="assets/processed/raster/emblems/drafting-compass.png" alt="Drafting compass illustration" class="home-project-emblem-image site-illustration-image site-illustration-image--emblem">
+</div>
 </div>
 
 <div class="home-projects-listing">
@@ -69,7 +71,7 @@ listing:
 <section class="home-section home-writing-section">
 <div class="home-section-header">
 <h2>Posts</h2>
-<a href="/writing/index.html" class="home-section-link">Ver todo</a>
+<a href="/posts/index.html" class="home-section-link">Ver todo</a>
 </div>
 
 ::: {#home-flagship-writing}
@@ -86,6 +88,10 @@ listing:
 :::
 </section>
 </div>
+</div>
+
+<div class="home-page-footer">
+{{< include includes/site-footer.html >}}
 </div>
 
 <!-- Homepage curation rule:

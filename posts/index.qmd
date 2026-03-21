@@ -1,0 +1,34 @@
+---
+title: Posts
+page-layout: full
+body-classes: posts-index-page
+listing:
+  - id: posts-archive
+    contents:
+      - "*.qmd"
+      - "!index.qmd"
+    template: ../includes/editorial-archive.ejs.md
+    template-params:
+      empty_message: No hay posts publicados todavia.
+    include:
+      access: public
+    sort: "date desc"
+---
+
+<div class="editorial-index-shell">
+<section class="editorial-index-hero">
+<h1>Writing</h1>
+<p class="editorial-index-deck">A collection of essays and articles on learning, systems, and publishing on the personal web.</p>
+</section>
+
+<section class="editorial-index-archive">
+::: {#posts-archive}
+:::
+</section>
+</div>
+
+{{< include ../includes/site-footer.html >}}
+
+<!-- Posts index rule:
+Only `access: public` items are listed here.
+Homepage visibility is controlled separately by `tier: flagship`. -->

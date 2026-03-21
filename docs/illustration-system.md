@@ -1,31 +1,106 @@
 # Illustration System
 
-This site uses a practical two-track illustration system:
+This site should read as one illustration family, not a collection of unrelated generated images.
 
-1. Raster normalization for generated illustrations
-2. SVG cleanup for the most important recurring emblems
+The guiding model is restrained editorial illustration:
 
-## What Can Be Automated
+- black or near-black line work
+- off-white paper field
+- clear safe area around the subject
+- quiet optical centering
+- low visual noise
+- no decorative effects that compete with typography
 
-These parts can be made consistent with a script:
+The system uses two tracks:
 
-- square export size
-- rebuilt background color
-- padding target
-- centering after a defined crop
-- mild contrast and black-point normalization
-- folder structure and naming
+1. normalized raster illustrations for posts and image-heavy references
+2. simplified emblem treatment for recurring site marks
 
-## What Cannot Be Fully Automated
+## Illustration Specification
 
-These parts still require judgment:
+### Shared Rules
 
-- whether a drawing is too detailed for emblem use
-- whether line density feels too busy next to another illustration
-- simplifying generated raster art into a clean icon
-- correcting awkward perspective or uneven stroke behavior
+- Master raster canvas: `1024 x 1024`
+- Shared paper tone: `#F7F3EC`
+- Stroke color: near-black rather than pure black
+- Saturation: effectively monochrome
+- Contrast: mild normalization only
+- Visual center: optically centered, not just mathematically centered
+- Outer safe area: preserve roughly `10%` to `16%` empty canvas around the main form
 
-That is why this workflow treats recurring emblems differently from general post illustrations.
+### Target Scale
+
+- Section emblems should occupy roughly `60%` to `76%` of the square canvas
+- Post illustrations should occupy roughly `68%` to `82%` of the square canvas
+- Wide hero or skyline illustrations may break the square format, but must still preserve a generous top and side margin when rendered on the page
+
+### Line Density And Shading
+
+- Use light to moderate engraving density
+- Keep one dominant line language across the set
+- Allow hatching only when it supports form and does not darken the image into a visual block
+- Prefer open line work over heavy fills
+
+### Allowed Features
+
+- thin line drawing
+- restrained engraving or hatching
+- subtle baseline or ground indication when it helps the object sit in space
+- architectural or instrument-like precision
+
+### Disallowed Features
+
+- mismatched paper colors
+- hard drop shadows
+- dense vignette backgrounds
+- glossy effects
+- painterly fills
+- aggressive texture overlays
+- overly dark local shading that overpowers nearby text
+- subject crops that touch the edge without an intentional reason
+
+## Usage Rules
+
+### Logo Or Skyline Usage
+
+- Use wide line illustrations such as the Montevideo skyline
+- Do not place them in a heavy framed card
+- Keep them horizontally centered with calm surrounding space
+- Preserve their thin baseline and avoid overscaling them on mobile
+
+### Section Emblems
+
+- Render inside a shared square paper field
+- Use consistent padding and border treatment
+- Use consistent maximum visual size regardless of the underlying source crop
+- Keep recurring emblems simpler and cleaner than post illustrations
+
+### Post Illustrations
+
+- Render inside the same paper field system as emblems
+- Allow slightly larger subject scale than emblems
+- Keep them secondary to the headline and summary
+- Prefer one illustration per post context rather than mixing multiple styles
+
+## Current Inconsistencies
+
+The current asset set had several inconsistencies before normalization:
+
+- raw assets and processed assets were mixed in production templates
+- the posts index hero used a raw wide library image while the homepage used normalized emblems
+- the featured posts card used a hard-coded raw skull illustration instead of the post front matter image
+- some front matter pointed to missing assets such as `assets/image.png` and `assets/mvd.png`
+- recurring emblems and post illustrations were rendered with different wrappers, padding, and background treatment
+- page-level illustration margins differed between the homepage, posts index, projects index, and featured cards
+
+## Normalization Plan
+
+1. Use processed raster assets in production templates by default.
+2. Normalize any newly introduced raw illustration before it is used publicly.
+3. Keep one shared paper tone and one shared wrapper treatment across cards and section art.
+4. Use front matter image fields consistently instead of hard-coded one-off art in templates.
+5. Reserve skyline-style art for wide hero contexts only.
+6. Continue simplifying the most repeated emblems over time if they remain visually noisier than the rest of the family.
 
 ## Folder Structure
 
@@ -43,7 +118,7 @@ assets/
 - `raw/` stores source files you do not edit or overwrite.
 - `processed/` stores normalized outputs used by the site once approved.
 
-## Current Manifest Workflow
+## Manifest Workflow
 
 The normalization presets live in:
 
@@ -61,7 +136,7 @@ Each line defines:
 - brightness
 - black-point lift
 
-The script crops the source, keys out the near-white original background, and composites the drawing onto one shared off-white canvas.
+The script crops the source, keys out the near-white original background, and composites the drawing onto the shared paper canvas.
 
 The script lives in:
 
@@ -84,55 +159,14 @@ Run it with:
    - `brightness`: `0.010`
    - `black_point`: `0.030`
 4. Set a crop rectangle that trims most of the excess whitespace.
-5. Set `fit` so the subject feels similar in visual weight to the other processed assets.
+5. Set `fit` so the subject lands inside the target scale range for its usage type.
 6. Run `./scripts/normalize_illustrations.sh`.
-7. Compare the processed output against the other illustrations. Only adjust crop or fit if it still looks off.
+7. Compare the processed output against the other illustrations. Adjust crop or fit until the object sits with similar visual weight and safe area.
 
 If the image is for a post and not a recurring site emblem, stop there. Keep it as a normalized raster asset.
 
-## SVG Emblem Plan
-
-These should become simplified SVG assets instead of staying generated rasters:
-
-### Drafting Compass
-
-- Redraw as a single clean silhouette-plus-line icon
-- Keep only the main legs, hinge, crossbar, and needle ends
-- Remove noisy shading and inner micro-detail
-- Use one stroke weight throughout
-
-### Palacio Salvo
-
-- Rebuild as a skyline or facade mark, not a detailed architectural drawing
-- Keep the central tower silhouette and a few landmark massing cues
-- Remove window-by-window detail
-- Prepare both a horizontal and compact mark
-
-### Magnifying Glass
-
-- Redraw as a clean circular lens and handle
-- Remove construction geometry and sketch traces
-- Keep one or two inner detail lines at most
-
-### Envelope
-
-- Create this fresh as SVG rather than generating it from prompts
-- Use a rectangle, flap line, and optional inner fold line
-- Keep it extremely plain so it matches the emblem family
-
-## SVG Style Rules
-
-When these SVGs are made, keep them consistent:
-
-- square artboard for standalone marks: `256 x 256`
-- horizontal emblem variant only when needed
-- stroke color: near-black, not pure black
-- one primary stroke weight across the full emblem family
-- rounded joins and caps unless the emblem clearly needs sharp corners
-- no shading, texture, or sketch noise
-
 ## Recommendation
 
-- Use normalized raster assets for post illustrations.
-- Use simplified SVGs for recurring site emblems and navigation marks.
-- Do not try to force every generated illustration into SVG. Only convert the assets that repeat often enough to justify cleanup.
+- Use normalized raster assets for all current site illustrations in production.
+- Treat the recurring emblems as a controlled subset with tighter scale and cleaner framing.
+- Only introduce SVG redraws later if a repeated mark still feels visually noisier than the rest of the set after normalization.

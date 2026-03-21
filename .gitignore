@@ -3,6 +3,9 @@
 # Quarto build output and local cache
 _site/
 .quarto/
+node_modules/
+artifacts/design-review/
+artifacts/playwright-mcp/
 
 # Editor and OS cruft
 .vscode/
@@ -11,3 +14,6 @@ _site/
 *.swo
 *.tmp
 *.tmp.*
+
+/.quarto/
+**/*.quarto_ipynb

@@ -28,12 +28,12 @@ end
 
 local function is_project_page()
   local input = PANDOC_STATE.input_files[1] or ""
-  return input:match("^projects/") ~= nil
+  return input:match("^proyectos/") ~= nil
 end
 
 local function is_writing_page()
   local input = PANDOC_STATE.input_files[1] or ""
-  return input:match("^writing/") ~= nil and not input:match("^writing/index%.qmd$")
+  return input:match("^posts/") ~= nil and not input:match("^posts/index%.qmd$")
 end
 
 local function meta_value(meta, key)

@@ -10,11 +10,11 @@ tags:
   - architecture
   - mapping
   - editorial
-image: assets/mvd.png
+image: assets/processed/raster/emblems/palacio-salvo.png
 links:
   demo: https://example.com/palacio-salvo-atlas
   repo: https://github.com/example/palacio-salvo-atlas
-  blog: https://example.com/writing/palacio-salvo-atlas-process
+  blog: https://example.com/posts/palacio-salvo-atlas-process
   video: https://example.com/video/palacio-salvo-atlas
 # Projects should keep `content_type: build`.
 # Set `tier: flagship` plus `access: public` to feature this item on the homepage.
@@ -34,7 +34,7 @@ I built a visual index that treats the building as both subject matter and organ
 
 ## Visuals
 
-![Placeholder project visual](../assets/mvd.png)
+![Placeholder project visual](../assets/processed/raster/emblems/palacio-salvo.png)
 
 Use this section for screenshots, diagrams, mockups, or process images.
 

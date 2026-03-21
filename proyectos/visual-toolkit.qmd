@@ -10,11 +10,11 @@ tags:
   - visuals
   - research
   - tooling
-image: assets/raw/emblems/magnifying-glass.png
+image: assets/processed/raster/emblems/magnifying-glass.png
 links:
   demo: https://example.com/visual-toolkit
   repo: https://github.com/example/visual-toolkit
-  blog: https://example.com/writing/visual-toolkit-notes
+  blog: https://example.com/posts/visual-toolkit-notes
 # Projects should keep `content_type: build`.
 # Set `tier: flagship` plus `access: public` to feature this item on the homepage.
 ---
@@ -33,7 +33,7 @@ The toolkit combines a handful of focused utilities for marking up images, compa
 
 ## Visuals
 
-![Placeholder project visual](../assets/raw/emblems/magnifying-glass.png)
+![Placeholder project visual](../assets/processed/raster/emblems/magnifying-glass.png)
 
 Use this section for screenshots, diagrams, mockups, or process images.
 

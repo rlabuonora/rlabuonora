@@ -14,7 +14,7 @@ image: assets/processed/raster/emblems/drafting-compass.png
 links:
   demo: https://example.com/data-forge-toolkit
   repo: https://github.com/example/data-forge-toolkit
-  blog: https://example.com/writing/data-forge-toolkit-notes
+  blog: https://example.com/posts/data-forge-toolkit-notes
 # Projects should keep `content_type: build`.
 # Set `tier: flagship` plus `access: public` to feature this item on the homepage.
 ---
