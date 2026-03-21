@@ -22,17 +22,17 @@ const fallbackImage = templateParams?.fallback_image || "";
 <% for (const item of items) { %>
   <% const metaValue = item[metaField]; %>
   <article class="editorial-archive-item">
-    <% if (metaValue) { %>
-    <p class="editorial-archive-date">
-      <time><%- metaField === "date" ? formatDisplayDate(metaValue) : metaValue %></time>
-    </p>
-    <% } %>
-    <div class="content-heading-with-badge">
-      <h2 class="editorial-archive-title"><a href="<%- item.path %>"><%- item.title %></a></h2>
+    <div class="editorial-archive-topline">
+      <% if (metaValue) { %>
+      <p class="editorial-archive-date">
+        <time><%- metaField === "date" ? formatDisplayDate(metaValue) : metaValue %></time>
+      </p>
+      <% } %>
       <% if (item.lang === "es" || item.lang === "en") { %>
       <span class="lang-badge lang-badge--<%- item.lang %>"><%- item.lang.toUpperCase() %></span>
       <% } %>
     </div>
+    <h2 class="editorial-archive-title"><a href="<%- item.path %>"><%- item.title %></a></h2>
     <% if (item.summary) { %>
     <p class="editorial-archive-summary"><%- item.summary %></p>
     <% } %>

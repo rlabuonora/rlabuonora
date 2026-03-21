@@ -45,13 +45,11 @@ This script will:
 
 - start `quarto preview --no-browser --port 4210`
 - automatically reuse that server if port `4210` is already occupied by an existing Quarto preview
-- capture screenshots for:
+- capture screenshots for the top-level review loop:
   - home
   - posts index
   - projects index
   - courses index
-  - project page
-  - article page
 - capture both:
   - desktop (`1440x1200`)
   - mobile (`393x852`)
@@ -73,6 +71,14 @@ If you want to be explicit and force reuse of an already-running preview, use:
 ```bash
 npm run design:capture:live
 ```
+
+If you want to opt into detail-page screenshots later, use:
+
+```bash
+node scripts/capture-design-screenshots.mjs --include-detail-pages
+```
+
+By default, detail pages are excluded so the review loop stays focused on the implemented top-level surfaces.
 
 ## 4. Review loop with Codex
 

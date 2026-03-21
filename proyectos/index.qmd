@@ -1,5 +1,5 @@
 ---
-title: Projects
+title: Proyectos
 page-layout: full
 body-classes: projects-index-page
 listing:
@@ -18,8 +18,11 @@ listing:
 
 <div class="editorial-index-shell">
 <section class="editorial-index-hero">
-<h1>Projects</h1>
-<p class="editorial-index-deck">A collection of projects, case studies, and build notes on systems, tools, and visual research.</p>
+<h1>Proyectos</h1>
+<p class="editorial-index-deck">Algunos proyectos y estudios de caso de cosas interesantes en las que trabajé.</p>
+<div class="editorial-index-emblem">
+  <img src="/assets/processed/raster/emblems/index/drafting-compass.png" alt="" class="editorial-index-emblem-image site-illustration-image site-illustration-image--emblem">
+</div>
 </section>
 
 <section class="editorial-index-archive">

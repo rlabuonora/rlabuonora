@@ -1,7 +1,7 @@
 ---
 title: El Juego de la Vida
 slug: el-juego-de-la-vida
-summary: Implementacion interactiva del automata celular de Conway, enfocada en exploracion visual, reglas emergentes y una experiencia clara en navegador.
+summary: "Implementación interactiva del automata celular de John Conway."
 year: 2017
 lang: es
 content_type: build

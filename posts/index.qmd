@@ -17,8 +17,11 @@ listing:
 
 <div class="editorial-index-shell">
 <section class="editorial-index-hero">
-<h1>Writing</h1>
-<p class="editorial-index-deck">A collection of essays and articles on learning, systems, and publishing on the personal web.</p>
+<h1>Notas</h1>
+<p class="editorial-index-deck">Notas sobre datos, ciencia, tecnología, arte y otras cosas que me interesan.</p>
+<div class="editorial-index-emblem">
+  <img src="/assets/processed/raster/emblems/index/magnifying-glass.png" alt="" class="editorial-index-emblem-image site-illustration-image site-illustration-image--emblem">
+</div>
 </section>
 
 <section class="editorial-index-archive">

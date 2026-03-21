@@ -1,7 +1,7 @@
 ---
 title: Geo Game
 slug: geo-game
-summary: An interactive geography game built with React, focused on data-driven play, fast feedback, and a cleaner UI/UX loop.
+summary: "An interactive geography game built with Codex and React"
 year: 2026
 lang: en
 content_type: build

@@ -37,9 +37,10 @@ listing:
 <div class="home-shell">
 <div class="home-hero-grid">
 <div class="home-hero-copy">
+<!-- <p class="home-hero-kicker">Sitio personal</p> -->
 <h1>Rafael La Buonora</h1>
-<p class="home-hero-deck">Acá programo, aprendo y escribo.</p>
-<p>Este sitio reúne proyectos, aprendizajes y notas sobre las cosas a las que les dedico tiempo y energía.</p>
+<p class="home-hero-deck">Generalista en software y datos.</p>
+<p class="home-hero-lead">Acá programo, aprendo y escribo.</p>
 </div>
 
 <div class="home-hero-figure site-illustration site-illustration--skyline">
@@ -47,9 +48,12 @@ listing:
 </div>
 </div>
 
-<section class="home-section">
+<section class="home-section home-section--projects">
 <div class="home-section-header">
+<div class="home-section-heading-group">
 <h2>Proyectos</h2>
+<p class="home-section-copy">Algunas cosas en las que trabajé recientemente.</p>
+</div>
 <a href="/proyectos/index.html" class="home-section-link">Ver todo</a>
 </div>
 
@@ -58,9 +62,12 @@ listing:
 </section>
 
 <div class="home-lower-grid">
-<section class="home-section home-writing-section">
+<section class="home-section home-writing-section home-section--writing">
 <div class="home-section-header">
+<div class="home-section-heading-group">
 <h2>Posts</h2>
+<p class="home-section-copy">Textos más largos sobre temas que me interesan.</p>
+</div>
 <a href="/posts/index.html" class="home-section-link">Ver todo</a>
 </div>
 
@@ -68,9 +75,12 @@ listing:
 :::
 </section>
 
-<section class="home-section home-courses-section">
+<section class="home-section home-courses-section home-section--courses">
 <div class="home-section-header">
+<div class="home-section-heading-group">
 <h2>Cursos</h2>
+<p class="home-section-copy">Economía y ciencia de datos.</p>
+</div>
 <a href="/cursos/index.html" class="home-section-link">Ver todo</a>
 </div>
 

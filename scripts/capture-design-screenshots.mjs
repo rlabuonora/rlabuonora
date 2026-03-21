@@ -10,14 +10,20 @@ const port = process.env.DESIGN_REVIEW_PORT || "4210";
 const baseUrl = process.env.DESIGN_REVIEW_BASE_URL || `http://127.0.0.1:${port}`;
 const outputRoot = path.join(rootDir, "artifacts", "design-review");
 const reuseServer = process.argv.includes("--reuse-server");
-const pages = [
+const includeDetailPages = process.argv.includes("--include-detail-pages");
+const topLevelPages = [
   { id: "home", path: "/", label: "Homepage" },
   { id: "posts-index", path: "/posts/index.html", label: "Posts index" },
   { id: "projects-index", path: "/proyectos/index.html", label: "Projects index" },
-  { id: "courses-index", path: "/cursos/index.html", label: "Courses index" },
+  { id: "courses-index", path: "/cursos/index.html", label: "Courses index" }
+];
+const detailPages = [
   { id: "project", path: "/proyectos/data-forge-toolkit.html", label: "Project page" },
   { id: "article", path: "/posts/designing-a-personal-site.html", label: "Article page" }
 ];
+const pages = includeDetailPages
+  ? [...topLevelPages, ...detailPages]
+  : topLevelPages;
 
 const viewports = [
   {
@@ -130,6 +136,8 @@ codex \\
 2. Attach the new screenshots above to Codex and ask for a focused design review.
 3. Use Playwright MCP during the review loop to inspect the live page structure and test specific changes in desktop or mobile.
 4. Re-run \`npm run design:capture\` and compare the new \`latest\` screenshots with the previous timestamped run.
+
+To include detail pages later, run \`node scripts/capture-design-screenshots.mjs --include-detail-pages\`.
 
 ## Quick check files
 

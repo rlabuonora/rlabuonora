@@ -1,16 +1,14 @@
 ---
 title: Patrones de uso de modelos de lenguaje
 slug: patrones-de-uso-de-modelos-de-lenguaje
-summary: "Cuatro patrones practicos para usar modelos de lenguaje: como obrero, maestro, coach y espejo."
+summary: "Notas sobre como usar modelos de lenguaje"
 date: 2026-01-01
 lang: es
 content_type: reflect
 access: public
 tier: flagship
 tags:
-  - llm
   - ai
-  - workflows
 ---
 
 Los modelos de lenguaje son la tecnologia que estabamos esperando. No sabemos si vinieron a salvarnos o a confirmar nuestra obsolecencia pero es imposible permanecer ajeno a lo que estan haciendo y preguntarse que implican para el futuro. En este posteo anoto **cuatro patrones** que uso seguido.
