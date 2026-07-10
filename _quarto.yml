@@ -19,7 +19,7 @@ website:
       - href: cursos/index.qmd
         text: Cursos
       - href: posts/index.qmd
-        text: Posts
+        text: Notas
       - href: about.qmd
         text: Acerca
 

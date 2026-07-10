@@ -12,6 +12,8 @@ body {
   --ink: #1f1c18;
   --muted-ink: #5d5850;
   --rule: #d8d0c2;
+  --tag-rule: rgba(210, 201, 189, 0.92);
+  --tag-bg: rgba(251, 248, 242, 0.54);
   --serif: "Fraunces", Georgia, serif;
   --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 }
@@ -402,7 +404,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   padding: 2.4rem 2.75rem 2.85rem;
   background: rgba(251, 248, 242, 0.95);
   border: 1px solid rgba(216, 208, 194, 0.65);
-  box-shadow: 0 18px 48px rgba(96, 84, 68, 0.08);
+  box-shadow: 0 14px 34px rgba(96, 84, 68, 0.05);
 }
 
 .home-hero-grid {
@@ -532,18 +534,18 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 .home-section-copy {
   max-width: 31rem;
   margin: 0.45rem 0 0;
-  color: #5b554d;
+  color: #534d45;
   font-size: 1rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .home-section-link {
   padding-bottom: 0.15rem;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-decoration: none;
-  color: var(--muted-ink);
+  color: #6b645b;
 }
 
 .home-section-link:hover,
@@ -608,17 +610,17 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: 1.1rem 0.9rem 1.15rem;
-  background: rgba(255, 252, 247, 0.42);
-  border: 1px solid rgba(214, 205, 192, 0.6);
-  transition: border-color 170ms ease, box-shadow 170ms ease, background-color 170ms ease;
+  padding: 1.3rem 0 1.4rem;
+  background: transparent;
+  border-top: 1px solid rgba(216, 208, 194, 0.7);
+  transition: border-color 170ms ease, background-color 170ms ease, opacity 170ms ease;
 }
 
 .home-project-card:hover .home-project-card-body,
 .home-project-card:focus-within .home-project-card-body {
-  border-color: #c8bcad;
-  box-shadow: 0 10px 22px rgba(97, 84, 67, 0.05);
-  background: rgba(255, 252, 247, 0.68);
+  border-color: #cbbdac;
+  background: rgba(255, 252, 247, 0.18);
+  opacity: 0.96;
 }
 
 .home-project-topline {
@@ -664,10 +666,10 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 .home-project-summary,
 .home-writing-summary,
 .home-rail-panel p {
-  margin: 0.7rem 0 0;
-  color: #302c27;
+  margin: 0.85rem 0 0;
+  color: #3a342d;
   max-width: none;
-  line-height: 1.62;
+  line-height: 1.68;
 }
 
 .home-project-summary {
@@ -678,18 +680,18 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2.1rem;
-  min-height: 1.4rem;
+  min-width: 2rem;
+  min-height: 1.38rem;
   padding: 0.08rem 0.4rem;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--tag-rule);
   border-radius: 999px;
-  background: rgba(251, 248, 242, 0.5);
-  color: var(--muted-ink);
-  font-size: 0.68rem;
+  background: var(--tag-bg);
+  color: #766f65;
+  font-size: 0.66rem;
   font-weight: 500;
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
   white-space: nowrap;
   flex: 0 0 auto;
 }
@@ -699,7 +701,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   color: var(--muted-ink);
 }
 
@@ -707,12 +709,14 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 .home-writing-meta span {
   display: inline-flex;
   align-items: center;
-  min-height: 1.7rem;
-  padding: 0.14rem 0.52rem;
-  border: 1px solid var(--rule);
-  font-size: 0.72rem;
+  min-height: 1.5rem;
+  padding: 0.12rem 0.5rem;
+  border: 1px solid var(--tag-rule);
+  background: var(--tag-bg);
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.075em;
+  color: #676158;
 }
 
 .home-lower-grid {
@@ -739,30 +743,29 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 
 .home-writing-list {
   display: grid;
-  gap: 0.95rem;
+  gap: 0;
 }
 
 .home-writing-item {
-  padding: 1rem 0 0;
+  padding: 0;
   align-items: start;
 }
 
 .home-writing-item + .home-writing-item {
-  border-top: 0;
+  border-top: 1px solid rgba(216, 208, 194, 0.45);
 }
 
 .home-writing-body {
   min-height: 100%;
-  padding: 1rem 0.95rem 1.1rem;
-  border: 1px solid rgba(214, 205, 192, 0.72);
-  background: rgba(255, 252, 247, 0.52);
-  transition: border-color 170ms ease, background-color 170ms ease;
+  padding: 1.3rem 0 1.4rem;
+  border: 0;
+  background: transparent;
+  transition: color 170ms ease, opacity 170ms ease;
 }
 
 .home-writing-item:hover .home-writing-body,
 .home-writing-item:focus-within .home-writing-body {
-  border-color: #cbbdab;
-  background: rgba(255, 252, 247, 0.86);
+  opacity: 0.94;
 }
 
 .home-writing-date {
@@ -989,11 +992,18 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 .projects-index-section-header-featured h2,
 .posts-index-section-header-featured h2,
 .courses-index-section-header-featured h2 {
-  font-size: 0.82rem;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   font-family: var(--sans);
   color: var(--muted-ink);
+}
+
+.content-heading-with-badge {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.55rem 0.9rem;
 }
 
 .projects-index-browse,
@@ -1148,9 +1158,10 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 .projects-recent-tags li,
 .posts-recent-tags li {
   padding: 0.28rem 0.75rem;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--tag-rule);
   border-radius: 999px;
-  color: #4b443b;
+  background: var(--tag-bg);
+  color: #5a544b;
 }
 
 .projects-recent-list,
@@ -1228,12 +1239,13 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 }
 
 .editorial-index-shell {
-  padding-top: clamp(2.8rem, 6vw, 4.9rem);
+  padding-top: clamp(2.35rem, 5vw, 4.15rem);
 }
 
 .editorial-index-hero {
-  padding: 0 0 0.55rem;
-  text-align: center;
+  width: min(100%, 41rem);
+  padding: 0 0 0.1rem;
+  text-align: left;
   border-bottom: 1px solid rgba(216, 208, 194, 0.9);
 }
 
@@ -1248,44 +1260,311 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 
 .editorial-index-deck {
   max-width: 34rem;
-  margin: 1.1rem auto 0;
-  font-size: clamp(1.04rem, 1.8vw, 1.28rem);
-  line-height: 1.6;
-  color: #666159;
+  margin: 1.05rem 0 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  line-height: 1.64;
+  color: #5f5951;
 }
 
-.editorial-index-emblem {
+.editorial-index-titleline {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: min(100%, 11.4rem);
-  margin: 1.1rem auto 0.2rem;
+  align-items: baseline;
+  gap: 0.9rem;
 }
 
-.editorial-index-emblem-image {
+.editorial-index-title-emblem {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  width: 2.7rem;
   height: auto;
-  object-fit: contain;
+  flex: 0 0 auto;
+  mix-blend-mode: multiply;
+  opacity: 0.68;
+}
+
+.editorial-index-rule {
+  width: 100%;
+  height: 1px;
+  margin-top: 1.35rem;
+  background: rgba(216, 208, 194, 0.88);
+}
+
+.posts-index-page .editorial-index-hero,
+.projects-index-page .editorial-index-hero,
+.courses-index-page .editorial-index-hero {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.editorial-index-divider-ornament {
+  width: 100%;
+  margin: 1.25rem 0 0.2rem;
+}
+
+.editorial-index-divider-ornament,
+.editorial-index-divider-ornament > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.editorial-index-divider-ornament > p {
+  width: 100%;
+  margin: 0;
+}
+
+.editorial-index-divider-segment,
+.editorial-index-divider-ornament > p .editorial-index-divider-segment {
+  flex: 1 1 auto;
+  border-top: 1px solid rgba(216, 208, 194, 0.85);
+}
+
+.editorial-index-divider-icon,
+.editorial-index-divider-ornament > p .editorial-index-divider-icon {
+  display: block;
+  width: 5.3rem;
+  height: auto;
+  flex: 0 0 auto;
   mix-blend-mode: multiply;
   opacity: 0.84;
 }
 
-.posts-index-page .editorial-index-emblem {
-  width: min(100%, 10.8rem);
+.posts-index-page .editorial-index-divider-icon,
+.posts-index-page .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+  width: 5rem;
+  opacity: 0.82;
 }
 
-.projects-index-page .editorial-index-emblem {
-  width: min(100%, 11.1rem);
+.projects-index-page .editorial-index-divider-icon,
+.projects-index-page .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+  width: 4.95rem;
+  opacity: 0.8;
 }
 
-.courses-index-page .editorial-index-emblem {
-  width: min(100%, 10.3rem);
+.courses-index-page .editorial-index-divider-icon,
+.courses-index-page .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+  width: 4.8rem;
+  opacity: 0.78;
 }
 
 .editorial-index-archive {
-  padding-top: 1.15rem;
+  width: min(100%, 41rem);
+  padding-top: 0.95rem;
+}
+
+.courses-index-page .editorial-index-hero {
+  width: min(100%, 41rem);
+  padding-bottom: 0;
+}
+
+.courses-index-page .editorial-index-titleline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.34rem;
+}
+
+.courses-index-page .editorial-index-title-emblem {
+  width: width: clamp(2.3rem, 3.1vw, 2.6rem);;
+  transform: translateY(-0.12rem);
+  gap: 0.35rem;
+  transform-origin: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  opacity: 0.68;
+  filter: contrast(1.08) brightness(0.92);
+}
+
+.courses-index-page .editorial-index-deck {
+  max-width: 31rem;
+  margin-top: 0.72rem;
+}
+
+.courses-index-page .editorial-index-rule {
+  margin-top: 0.96rem;
+  background: rgba(206, 197, 183, 0.96);
+}
+
+.courses-index-page .editorial-index-archive {
+  padding-top: 0.54rem;
+}
+
+.courses-index-page .editorial-archive-list {
+  border-top: 0;
+}
+
+.courses-index-page .editorial-archive-item {
+  padding: 1.22rem 0 1.7rem;
+  border-bottom-color: rgba(210, 201, 189, 0.96);
+}
+
+.courses-index-page .editorial-archive-topline {
+  margin-bottom: 0.78rem;
+}
+
+.courses-index-page .editorial-archive-date {
+  font-size: 0.77rem;
+  letter-spacing: 0.17em;
+}
+
+.courses-index-page .editorial-archive-summary {
+  max-width: 33rem;
+  margin-top: 0.8rem;
+}
+
+.courses-index-page .editorial-archive-tags {
+  margin-top: 0.95rem;
+}
+
+.projects-layered-shell {
+  max-width: 56rem;
+}
+
+.projects-layered-shell .editorial-index-hero,
+.projects-layered-shell .projects-index-section,
+.projects-layered-shell .projects-index-closing {
+  width: 100%;
+}
+
+.projects-layered-shell .editorial-index-deck {
+  max-width: 37rem;
+}
+
+.projects-layered-shell .editorial-index-divider-ornament {
+  margin-bottom: 0.2rem;
+}
+
+.projects-layered-shell .projects-index-section {
+  padding-top: 1.65rem;
+}
+
+.projects-layered-shell .projects-index-section-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+}
+
+.projects-layered-shell .projects-index-section-header h2 {
+  font-size: 1.78rem;
+}
+
+.projects-layered-shell .projects-index-section-header-featured h2 {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+}
+
+.projects-layered-shell .projects-featured-list,
+.projects-layered-shell .projects-recent-list {
+  border-top: 1px solid rgba(216, 208, 194, 0.35);
+}
+
+.projects-layered-shell .projects-featured-card {
+  grid-template-columns: minmax(0, 1fr) 15.5rem;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.45rem 0 1.55rem;
+  border-bottom: 1px solid rgba(216, 208, 194, 0.9);
+}
+
+.projects-layered-shell .projects-featured-body {
+  max-width: 34rem;
+}
+
+.projects-layered-shell .projects-featured-title {
+  max-width: 24rem;
+  margin-top: 0.28rem;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+}
+
+.projects-layered-shell .projects-featured-summary {
+  max-width: 33rem;
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: #595349;
+}
+
+.projects-layered-shell .projects-featured-tags {
+  gap: 0.38rem;
+  margin-top: 0.95rem;
+}
+
+.projects-layered-shell .projects-featured-tags li,
+.projects-layered-shell .projects-recent-tags li {
+  padding: 0.16rem 0.56rem;
+  border-color: #d8d0c2;
+  border-radius: 999px;
+  background: rgba(251, 248, 242, 0.48);
+  color: #6a655d;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  line-height: 1.25;
+}
+
+.projects-layered-shell .projects-featured-art {
+  align-self: center;
+  width: min(100%, 15rem);
+  margin-left: auto;
+  padding: 0.6rem;
+}
+
+.projects-layered-shell .projects-featured-image {
+  width: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
+.projects-layered-shell .projects-recent-list {
+  border-bottom: 1px solid rgba(216, 208, 194, 0.9);
+}
+
+.projects-layered-shell .projects-recent-item {
+  grid-template-columns: 6rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 0.95rem 0 1rem;
+  border-top: 1px solid rgba(216, 208, 194, 0.35);
+}
+
+.projects-layered-shell .projects-recent-title {
+  margin-top: 0.1rem;
+  font-size: clamp(1.48rem, 2.1vw, 1.92rem);
+}
+
+.projects-layered-shell .projects-recent-summary {
+  max-width: 31rem;
+  color: #595349;
+  line-height: 1.7;
+}
+
+.projects-layered-shell .projects-recent-tags {
+  gap: 0.34rem;
+  margin-top: 0.18rem;
+}
+
+.projects-layered-shell .projects-index-closing {
+  margin: 1.15rem 0 0;
+}
+
+.projects-layered-shell .projects-index-browse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #6a655d;
+  text-decoration: none;
+}
+
+.projects-layered-shell .projects-index-browse::after {
+  content: "→";
+}
+
+.projects-layered-shell .projects-index-section--archive {
+  padding-top: 1.4rem;
+}
+
+.projects-layered-shell .projects-index-section--archive .editorial-archive-list {
+  border-top-color: rgba(216, 208, 194, 0.35);
 }
 
 .editorial-archive-list {
@@ -1293,17 +1572,17 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 }
 
 .editorial-archive-item {
-  padding: 1.7rem 0 1.85rem;
+  padding: 1.6rem 0 1.8rem;
   border-bottom: 1px solid rgba(216, 208, 194, 0.9);
 }
 
 .editorial-archive-topline {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: 0.8rem;
-  width: min(100%, 41rem);
-  margin-bottom: 0.78rem;
+  width: 100%;
+  margin-bottom: 0.9rem;
 }
 
 .editorial-archive-date {
@@ -1312,11 +1591,11 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   font-family: var(--sans);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #7a756d;
+  color: #726b62;
 }
 
 .editorial-archive-title {
-  max-width: 41rem;
+  max-width: none;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(1.82rem, 2.65vw, 2.45rem);
@@ -1337,31 +1616,31 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 }
 
 .editorial-archive-summary {
-  max-width: 36rem;
-  margin: 0.85rem 0 0;
-  font-size: 1rem;
-  line-height: 1.72;
-  color: #605a52;
+  max-width: 35.5rem;
+  margin: 0.9rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.74;
+  color: #585248;
 }
 
 .editorial-archive-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.38rem;
-  margin: 1.05rem 0 0;
+  margin: 1.1rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .editorial-archive-tags li {
-  padding: 0.16rem 0.56rem;
-  border: 1px solid #d8d0c2;
+  padding: 0.14rem 0.5rem;
+  border: 1px solid var(--tag-rule);
   border-radius: 999px;
-  background: rgba(251, 248, 242, 0.48);
-  color: #6a655d;
-  font-size: 0.74rem;
+  background: var(--tag-bg);
+  color: #676158;
+  font-size: 0.71rem;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.075em;
   line-height: 1.25;
 }
 
@@ -1372,7 +1651,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 
 @media (max-width: 700px) {
   .editorial-archive-topline {
-    align-items: flex-start;
+    align-items: start;
   }
 
   .writing-card-archive {
@@ -1471,6 +1750,31 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
     margin-right: 0;
     order: 2;
     flex: 0 0 auto;
+    padding: 0.35rem 0.2rem;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .navbar-toggler:focus,
+  .navbar-toggler:focus-visible,
+  body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page, .project-page, .writing-page, .course-page) .navbar-toggler:focus,
+  body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page, .project-page, .writing-page, .course-page) .navbar-toggler:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .navbar-toggler-icon,
+  body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page, .project-page, .writing-page, .course-page) .navbar-toggler-icon {
+    width: 1.55rem;
+    height: 1.1rem;
+    background-image:
+      linear-gradient(rgba(52, 47, 41, 0.84), rgba(52, 47, 41, 0.84)),
+      linear-gradient(rgba(52, 47, 41, 0.84), rgba(52, 47, 41, 0.84)),
+      linear-gradient(rgba(52, 47, 41, 0.84), rgba(52, 47, 41, 0.84));
+    background-position: center 0.08rem, center 0.5rem, center 0.92rem;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px, 100% 1px;
   }
 
   .navbar-collapse,
@@ -1493,7 +1797,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   }
 
   body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page, .project-page, .writing-page, .course-page) .navbar > .navbar-container {
-    padding: 0.8rem 0.75rem;
+    padding: 0.95rem 0.75rem;
   }
 
   body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page, .project-page, .writing-page, .course-page) .navbar-toggler {
@@ -1501,16 +1805,19 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   }
 
   .home-shell {
-    padding: 1.35rem 0.75rem 1.6rem;
+    padding: 1.9rem 0.95rem 2.25rem;
   }
 
   .home-section-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.35rem;
+    padding-bottom: 0.9rem;
   }
 
   .home-section {
-    padding-top: 2rem;
+    padding-top: 2.8rem;
   }
 
   .home-section-header h2 {
@@ -1518,20 +1825,24 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   }
 
   .home-section-copy {
-    font-size: 0.95rem;
+    max-width: 20rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
   }
 
   .home-hero-grid {
-    gap: 1.8rem;
-    padding-bottom: 2rem;
+    gap: 2.45rem;
+    padding-bottom: 2.6rem;
   }
 
   .home-hero-copy h1 {
-    font-size: clamp(2.5rem, 13vw, 3.3rem);
+    font-size: clamp(2.55rem, 13vw, 3.45rem);
+    line-height: 0.97;
   }
 
   .home-hero-deck {
-    font-size: 1.12rem;
+    margin-bottom: 1.15rem;
+    font-size: 1.14rem;
   }
 
   .home-hero-lead,
@@ -1539,27 +1850,23 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
     max-width: none;
   }
 
+  .home-hero-lead {
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+  .home-hero-figure {
+    display: none;
+  }
+
   .home-project-card-body,
   .home-writing-body {
-    padding: 0.95rem 0.82rem 1rem;
+    padding: 1.35rem 0 1.45rem;
   }
 
   .lang-badge {
-    min-width: 2rem;
-    min-height: 1.4rem;
-    padding: 0.08rem 0.38rem;
-  }
-
-  .editorial-archive-item {
-    padding: 1.2rem 0 1.3rem;
-  }
-
-  .editorial-archive-title {
-    max-width: none;
-  }
-
-  .editorial-archive-summary {
-    font-size: 1rem;
+    min-width: 1.95rem;
+    min-height: 1.34rem;
   }
 
   .projects-index-page main.content,
@@ -1593,59 +1900,165 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   }
 
   .editorial-index-shell {
-    padding-top: 2rem;
+    padding-top: 2.45rem;
+    padding-bottom: 1.35rem;
   }
 
   .editorial-index-hero {
-    padding-bottom: 0.45rem;
+    width: 100%;
+    padding-bottom: 0.18rem;
   }
 
   .editorial-index-hero h1 {
-    font-size: clamp(2.55rem, 11.5vw, 3.8rem);
+    font-size: clamp(2.42rem, 10.4vw, 3.45rem);
+  }
+
+  .editorial-index-titleline {
+    gap: 0.72rem;
+  }
+
+  .editorial-index-title-emblem {
+    width: 2.15rem;
   }
 
   .editorial-index-deck {
+    max-width: 19rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .editorial-index-divider-ornament {
+    margin: 1.1rem 0 0.18rem;
+  }
+
+  .editorial-index-divider-ornament,
+  .editorial-index-divider-ornament > p {
+    gap: 0.7rem;
+  }
+
+  .editorial-index-divider-icon,
+  .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+    width: 3.95rem;
+  }
+
+  .courses-index-page .editorial-index-titleline {
+    gap: 0.3rem;
+  }
+
+  .courses-index-page .editorial-index-title-emblem {
+    width: 1.74rem;
+    transform: translateY(0.08rem);
+  }
+
+  .courses-index-page .editorial-index-deck {
     max-width: 20rem;
-    margin-top: 0.9rem;
-    font-size: 0.98rem;
-    line-height: 1.56;
+    margin-top: 0.62rem;
   }
 
-  .editorial-index-emblem {
-    width: min(100%, 8.9rem);
-    margin: 0.75rem auto 0.15rem;
+  .courses-index-page .editorial-index-rule {
+    margin-top: 0.82rem;
   }
 
-  .posts-index-page .editorial-index-emblem {
-    width: min(100%, 8.4rem);
+  .courses-index-page .editorial-index-archive {
+    padding-top: 0.44rem;
   }
 
-  .projects-index-page .editorial-index-emblem {
-    width: min(100%, 8.65rem);
+  .courses-index-page .editorial-archive-item {
+    padding: 1.02rem 0 1.45rem;
   }
 
-  .courses-index-page .editorial-index-emblem {
-    width: min(100%, 8.05rem);
+  .courses-index-page .editorial-archive-topline {
+    margin-bottom: 0.68rem;
+  }
+
+  .posts-index-page .editorial-index-divider-icon,
+  .posts-index-page .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+    width: 3.8rem;
+    opacity: 0.82;
+  }
+
+  .projects-index-page .editorial-index-divider-icon,
+  .projects-index-page .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+    width: 3.72rem;
+    opacity: 0.8;
+  }
+
+  .courses-index-page .editorial-index-divider-icon,
+  .courses-index-page .editorial-index-divider-ornament > p .editorial-index-divider-icon {
+    width: 3.62rem;
+    opacity: 0.78;
   }
 
   .editorial-archive-item {
-    padding: 1.3rem 0 1.4rem;
+    padding: 1.6rem 0 1.8rem;
   }
 
   .editorial-archive-title {
-    font-size: clamp(1.58rem, 8.4vw, 2.02rem);
-    line-height: 1.02;
+    font-size: clamp(1.38rem, 7vw, 1.76rem);
+    line-height: 1.06;
   }
 
   .editorial-archive-summary {
     max-width: none;
-    margin-top: 0.75rem;
-    font-size: 0.96rem;
-    line-height: 1.64;
+    margin-top: 0.92rem;
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .editorial-archive-tags {
+    margin-top: 1.12rem;
+    gap: 0.42rem;
   }
 
   .editorial-archive-tags li {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+  }
+
+  .projects-layered-shell .projects-index-section {
+    padding-top: 1.35rem;
+  }
+
+  .projects-layered-shell .projects-featured-card {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1.2rem 0 1.4rem;
+  }
+
+  .projects-layered-shell .projects-featured-art {
+    order: 2;
+    width: min(100%, 10.75rem);
+    margin-left: 0;
+    padding: 0.5rem;
+  }
+
+  .projects-layered-shell .projects-featured-body {
+    order: 1;
+  }
+
+  .projects-layered-shell .projects-featured-title {
+    max-width: none;
+    font-size: clamp(1.56rem, 7.1vw, 1.92rem);
+    line-height: 1.08;
+  }
+
+  .projects-layered-shell .projects-featured-summary {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .projects-layered-shell .projects-recent-item {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .projects-layered-shell .projects-recent-meta {
+    justify-self: start;
+  }
+
+  .projects-layered-shell .projects-index-closing {
+    margin-top: 1.2rem;
   }
 }
 
@@ -1782,7 +2195,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 .project-page .site-footer-callout,
 .writing-page .site-footer-callout,
 .course-page .site-footer-callout {
-  margin-top: 3.75rem;
+  margin-top: 4.2rem;
 }
 
 .posts-index-page .site-footer-callout,
@@ -1791,7 +2204,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   width: 100vw;
   max-width: none;
   margin: 0 calc(50% - 50vw) 0;
-  padding: 1.55rem 0 1.1rem;
+  padding: 1.85rem 0 1.15rem;
   border-top-color: transparent;
   background: transparent;
 }
@@ -1820,7 +2233,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 
   .home-page .site-footer-callout {
     width: min(1240px, calc(100vw - 1.5rem));
-    margin-top: 1.2rem;
+    margin-top: 1.65rem;
   }
 
   .posts-index-page .site-footer-callout,
@@ -1829,7 +2242,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
     width: 100vw;
     max-width: none;
     margin: 0 calc(50% - 50vw) 0;
-    padding-top: 1.25rem;
+    padding-top: 2.2rem;
   }
 
   .posts-index-page .site-footer-callout-inner,

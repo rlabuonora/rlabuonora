@@ -12,7 +12,7 @@ tags:
   - R
   - analytics
   - AWS
-image: assets/projects/fucrea/dashboard.png
+image: assets/projects/fucrea/diagrama_2.png
 links:
   video: https://www.youtube.com/watch?v=PIhd73jFZZQ
 ---

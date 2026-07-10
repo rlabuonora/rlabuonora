@@ -11,7 +11,7 @@ tags:
   - react
   - data
   - ed-tech
-image: assets/processed/raster/emblems/compass-rose.png
+image: assets/projects/geo-game/thumbnail.png
 ---
 
 The other weekend, my son asked a question: what are India’s neighbors? I turned it into a game quickly. The game is a react app and a geography dataset. Vibe coding helped me find the product fast, and next day we were playing it. Here is the first version:

@@ -14,6 +14,7 @@ function formatDisplayDate(value) {
 
 const metaField = templateParams?.meta_field || "date";
 const fallbackImage = templateParams?.fallback_image || "";
+const maxTags = templateParams?.max_tags || 3;
 %>
 <div class="editorial-archive-list">
 <% if (!items.length) { %>
@@ -38,7 +39,7 @@ const fallbackImage = templateParams?.fallback_image || "";
     <% } %>
     <% if (item.tags && item.tags.length) { %>
     <ul class="editorial-archive-tags">
-      <% for (const tag of item.tags.slice(0, 3)) { %>
+      <% for (const tag of item.tags.slice(0, maxTags)) { %>
       <li><%- tag %></li>
       <% } %>
     </ul>

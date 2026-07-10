@@ -17,11 +17,14 @@ listing:
 
 <div class="editorial-index-shell">
 <section class="editorial-index-hero">
+<div class="editorial-index-titleline">
+<img src="/assets/processed/raster/emblems/ui-index/compass-rose.png" alt="" class="editorial-index-title-emblem site-illustration-image site-illustration-image--emblem">
 <h1>Cursos</h1>
-<p class="editorial-index-deck">Cursos, talleres y materiales de aprendizaje publicados en el sitio.</p>
-<div class="editorial-index-emblem">
-  <img src="/assets/processed/raster/emblems/index/compass-rose.png" alt="" class="editorial-index-emblem-image site-illustration-image site-illustration-image--emblem">
 </div>
+<p class="editorial-index-deck">Cursos, talleres y materiales de aprendizaje publicados en el sitio.</p>
+```{=html}
+<div class="editorial-index-rule" aria-hidden="true"></div>
+```
 </section>
 
 <section class="editorial-index-archive">

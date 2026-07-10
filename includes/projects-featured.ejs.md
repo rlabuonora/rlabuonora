@@ -14,16 +14,17 @@ function normalizeImagePath(value) {
   }
   return value.replace(/^\.?\//, "../");
 }
+
+const maxItems = templateParams?.max_items || 2;
 %>
 <div class="projects-featured-list">
 <% if (!items.length) { %>
   <p class="writing-listing-empty"><%- templateParams?.empty_message || "No public featured projects yet." %></p>
 <% } %>
-<% for (const item of items.slice(0, 1)) { %>
+<% for (const item of items.slice(0, maxItems)) { %>
+  <% const imagePath = normalizeImagePath(item.image); %>
+  <% const imageIsEmblem = /\/emblems\//.test(imagePath); %>
   <article class="projects-featured-card">
-    <div class="projects-featured-art site-illustration-paper site-illustration-paper--square site-illustration-paper--emblem">
-      <img src="<%- normalizeImagePath(item.image) %>" alt="" class="projects-featured-image site-illustration-image site-illustration-image--emblem">
-    </div>
     <div class="projects-featured-body">
       <% if (item.year) { %>
       <p class="projects-featured-date"><%- item.year %></p>
@@ -44,6 +45,9 @@ function normalizeImagePath(value) {
         <% } %>
       </ul>
       <% } %>
+    </div>
+    <div class="projects-featured-art site-illustration-paper <%- imageIsEmblem ? "site-illustration-paper--square" : "site-illustration-paper--landscape" %>">
+      <img src="<%- imagePath %>" alt="" class="projects-featured-image site-illustration-image <%- imageIsEmblem ? "site-illustration-image--emblem" : "site-illustration-image--hero" %>">
     </div>
   </article>
 <% } %>

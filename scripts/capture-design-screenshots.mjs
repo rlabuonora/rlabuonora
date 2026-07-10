@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { createServer } from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
 import net from "node:net";
@@ -6,14 +7,14 @@ import process from "node:process";
 import { chromium } from "playwright";
 
 const rootDir = process.cwd();
-const port = process.env.DESIGN_REVIEW_PORT || "4210";
-const baseUrl = process.env.DESIGN_REVIEW_BASE_URL || `http://127.0.0.1:${port}`;
+const defaultPort = Number(process.env.DESIGN_REVIEW_PORT || "4210");
+const explicitBaseUrl = process.env.DESIGN_REVIEW_BASE_URL || "";
 const outputRoot = path.join(rootDir, "artifacts", "design-review");
 const reuseServer = process.argv.includes("--reuse-server");
 const includeDetailPages = process.argv.includes("--include-detail-pages");
 const topLevelPages = [
   { id: "home", path: "/", label: "Homepage" },
-  { id: "posts-index", path: "/posts/index.html", label: "Posts index" },
+  { id: "posts-index", path: "/posts/index.html", label: "Notas index" },
   { id: "projects-index", path: "/proyectos/index.html", label: "Projects index" },
   { id: "courses-index", path: "/cursos/index.html", label: "Courses index" }
 ];
@@ -68,6 +69,16 @@ async function isPortOpen(host, targetPort) {
   });
 }
 
+async function findAvailablePort(startPort, host = "127.0.0.1", attempts = 20) {
+  for (let candidate = startPort; candidate < startPort + attempts; candidate += 1) {
+    const open = await isPortOpen(host, candidate);
+    if (!open) {
+      return candidate;
+    }
+  }
+  throw new Error(`No free port found starting from ${startPort}`);
+}
+
 async function ensureCleanDir(dir) {
   await fs.rm(dir, { recursive: true, force: true });
   await fs.mkdir(dir, { recursive: true });
@@ -86,16 +97,12 @@ async function waitForServer(url, attempts = 60) {
   throw new Error(`Timed out waiting for ${url}`);
 }
 
-function startQuartoPreview() {
-  const child = spawn(
-    "quarto",
-    ["preview", "--no-browser", "--port", port],
-    {
-      cwd: rootDir,
-      stdio: "pipe",
-      env: { ...process.env, QUARTO_PRINT_STACK: "true" }
-    }
-  );
+function runQuartoRender() {
+  const child = spawn("quarto", ["render"], {
+    cwd: rootDir,
+    stdio: "pipe",
+    env: { ...process.env, QUARTO_PRINT_STACK: "true" }
+  });
 
   child.stdout.on("data", (chunk) => {
     process.stdout.write(`[quarto] ${chunk}`);
@@ -105,7 +112,70 @@ function startQuartoPreview() {
     process.stderr.write(`[quarto] ${chunk}`);
   });
 
-  return child;
+  return new Promise((resolve, reject) => {
+    child.on("exit", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error(`quarto render exited with code ${code}`));
+      }
+    });
+    child.on("error", reject);
+  });
+}
+
+function getContentType(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  switch (ext) {
+    case ".html": return "text/html; charset=utf-8";
+    case ".css": return "text/css; charset=utf-8";
+    case ".js": return "application/javascript; charset=utf-8";
+    case ".json": return "application/json; charset=utf-8";
+    case ".png": return "image/png";
+    case ".jpg":
+    case ".jpeg": return "image/jpeg";
+    case ".svg": return "image/svg+xml";
+    case ".ico": return "image/x-icon";
+    case ".woff": return "font/woff";
+    case ".woff2": return "font/woff2";
+    default: return "application/octet-stream";
+  }
+}
+
+async function startStaticServer({ port, root }) {
+  const server = createServer(async (req, res) => {
+    try {
+      const requestUrl = new URL(req.url || "/", `http://127.0.0.1:${port}`);
+      const pathname = decodeURIComponent(requestUrl.pathname);
+      const relativePath = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
+      let filePath = path.join(root, relativePath);
+      let stats;
+
+      try {
+        stats = await fs.stat(filePath);
+      } catch {
+        stats = null;
+      }
+
+      if (stats?.isDirectory()) {
+        filePath = path.join(filePath, "index.html");
+      }
+
+      const data = await fs.readFile(filePath);
+      res.writeHead(200, { "Content-Type": getContentType(filePath) });
+      res.end(data);
+    } catch {
+      res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+      res.end("Not Found");
+    }
+  });
+
+  await new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(port, "127.0.0.1", resolve);
+  });
+
+  return server;
 }
 
 async function writeReviewInstructions(manifest, latestDir) {
@@ -149,6 +219,13 @@ To include detail pages later, run \`node scripts/capture-design-screenshots.mjs
 }
 
 async function main() {
+  const host = "127.0.0.1";
+  const activePort = explicitBaseUrl
+    ? new URL(explicitBaseUrl).port
+    : reuseServer
+      ? defaultPort
+      : await findAvailablePort(defaultPort, host);
+  const baseUrl = explicitBaseUrl || `http://${host}:${activePort}`;
   const runId = timestamp();
   const runDir = path.join(outputRoot, runId);
   const latestDir = path.join(outputRoot, "latest");
@@ -163,12 +240,22 @@ async function main() {
 
   await fs.mkdir(outputRoot, { recursive: true });
 
-  const serverAlreadyRunning = await isPortOpen("127.0.0.1", port);
-  const shouldReuseServer = reuseServer || serverAlreadyRunning;
-  const preview = shouldReuseServer ? null : startQuartoPreview();
+  const serverAlreadyRunning = explicitBaseUrl
+    ? true
+    : await isPortOpen(host, Number(activePort));
+  const shouldReuseServer = reuseServer || Boolean(explicitBaseUrl);
+  let server;
   let browser;
 
   try {
+    if (!shouldReuseServer) {
+      await runQuartoRender();
+      server = await startStaticServer({
+        port: Number(activePort),
+        root: path.join(rootDir, "_site")
+      });
+    }
+
     await waitForServer(baseUrl);
     await ensureCleanDir(runDir);
 
@@ -213,8 +300,8 @@ async function main() {
 
     await writeReviewInstructions(manifest, latestDir);
 
-    if (serverAlreadyRunning && !reuseServer) {
-      console.log(`Reused existing preview server at ${baseUrl}`);
+    if (serverAlreadyRunning && shouldReuseServer) {
+      console.log(`Reused existing server at ${baseUrl}`);
     }
     console.log(`Saved screenshots to ${path.relative(rootDir, runDir)}`);
     console.log(`Updated latest screenshots in ${path.relative(rootDir, latestDir)}`);
@@ -223,8 +310,8 @@ async function main() {
     if (browser) {
       await browser.close();
     }
-    if (preview) {
-      preview.kill("SIGTERM");
+    if (server) {
+      await new Promise((resolve) => server.close(resolve));
     }
   }
 }

@@ -65,7 +65,7 @@ listing:
 <section class="home-section home-writing-section home-section--writing">
 <div class="home-section-header">
 <div class="home-section-heading-group">
-<h2>Posts</h2>
+<h2>Notas</h2>
 <p class="home-section-copy">Textos más largos sobre temas que me interesan.</p>
 </div>
 <a href="/posts/index.html" class="home-section-link">Ver todo</a>

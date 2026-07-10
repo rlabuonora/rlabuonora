@@ -1,5 +1,5 @@
 ---
-title: Posts
+title: Notas
 page-layout: full
 body-classes: posts-index-page
 listing:
@@ -18,10 +18,10 @@ listing:
 <div class="editorial-index-shell">
 <section class="editorial-index-hero">
 <h1>Notas</h1>
-<p class="editorial-index-deck">Notas sobre datos, ciencia, tecnología, arte y otras cosas que me interesan.</p>
-<div class="editorial-index-emblem">
-  <img src="/assets/processed/raster/emblems/index/magnifying-glass.png" alt="" class="editorial-index-emblem-image site-illustration-image site-illustration-image--emblem">
-</div>
+<p class="editorial-index-deck">Notas sobre datos, ciencia, tecnología y otras yerbas.</p>
+```{=html}
+<div class="editorial-index-divider-ornament" aria-hidden="true"><span class="editorial-index-divider-segment"></span><img src="/assets/processed/raster/emblems/ui-index/magnifying-glass.png" alt="" class="editorial-index-divider-icon site-illustration-image site-illustration-image--emblem"><span class="editorial-index-divider-segment"></span></div>
+```
 </section>
 
 <section class="editorial-index-archive">
