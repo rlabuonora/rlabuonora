@@ -19,6 +19,8 @@ El otro fin de semana, mi hijo me hizo una pregunta: ¿cuáles son los países v
 
 La convertí en [un juego](https://verdant-mochi-1d33d0.netlify.app/). Una aplicación en React, un dataset de geografía y unas horas de trabajo con Codex. Al día siguiente ya estábamos jugando.
 
+![Captura del juego de geografía con los puntajes de los jugadores y Liberia resaltada en el mapa](geo-game.png)
+
 Antes del *vibe coding*, poner en marcha este proyecto me habría llevado muchas más horas. Pero lo más interesante fue lo rápido que pude descubrir qué quería construir. Tener una primera versión me permitió probar una idea con mi hijo, ver qué nos divertía y empezar a imaginar qué podía mejorar.
 
 El juego funciona. Jugamos y pasamos un buen rato. Pero tener un prototipo funcionando solo te hace ver todo lo que falta pensar a la hora de crear un juego que enseña.
