@@ -1,0 +1,90 @@
+---
+title: Inicio
+body-classes: home-page
+page-layout: full
+listing:
+  - id: home-flagship-projects
+    contents:
+      - proyectos/*.qmd
+      - "!proyectos/index.qmd"
+    template: includes/home-projects.ejs.md
+    include:
+      access: public
+      tier: flagship
+    sort: "year desc"
+  - id: home-flagship-writing
+    contents:
+      - posts/*.qmd
+      - "!posts/index.qmd"
+    template: includes/home-writing.ejs.md
+    include:
+      access: public
+    sort: "date desc"
+  - id: home-flagship-cursos
+    contents:
+      - cursos/*.qmd
+      - "!cursos/index.qmd"
+    template: includes/home-writing.ejs.md
+    template-params:
+      empty_message: No hay cursos destacados todavía.
+    include:
+      access: public
+      tier: flagship
+    sort: "date desc"
+---
+
+<div class="home-shell">
+<div class="home-hero-grid">
+<div class="home-hero-copy">
+<!-- <p class="home-hero-kicker">Sitio personal</p> -->
+<h1>Rafael La Buonora</h1>
+<p class="home-hero-deck">Generalista en software y datos.</p>
+<p class="home-hero-lead">Acá programo, aprendo y escribo.</p>
+</div>
+
+<div class="home-hero-figure site-illustration site-illustration--skyline">
+<img src="assets/raw/mvd-hero.png" alt="Ilustración de la costa de Montevideo" class="home-hero-image site-illustration-image site-illustration-image--skyline">
+</div>
+</div>
+
+<div class="home-lower-grid">
+<section class="home-section home-writing-section home-section--writing">
+<div class="home-section-header">
+<div class="home-section-heading-group">
+<h2>Notas</h2>
+<p class="home-section-copy">Textos más largos sobre temas que me interesan.</p>
+</div>
+<a href="/posts/index.html" class="home-section-link">Ver todo</a>
+</div>
+
+::: {#home-flagship-writing}
+:::
+</section>
+
+<section class="home-section home-courses-section home-section--courses">
+<div class="home-section-header">
+<div class="home-section-heading-group">
+<h2>Cursos</h2>
+<p class="home-section-copy">Economía y ciencia de datos.</p>
+</div>
+<a href="/cursos/index.html" class="home-section-link">Ver todo</a>
+</div>
+
+::: {#home-flagship-cursos}
+:::
+</section>
+</div>
+
+<section class="home-section home-section--projects">
+<div class="home-section-header">
+<div class="home-section-heading-group">
+<h2>Proyectos</h2>
+<p class="home-section-copy">Algunas cosas en las que trabajé recientemente.</p>
+</div>
+<a href="/proyectos/index.html" class="home-section-link">Ver todo</a>
+</div>
+
+::: {#home-flagship-projects}
+:::
+</section>
+</div>

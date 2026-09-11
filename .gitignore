@@ -1,7 +1,23 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
 .DS_Store
-Thumbs.db
-.hugo_build.lock
+
+# Quarto build output and local cache
+_site/
+.quarto/
+legacy/
+node_modules/
+artifacts/design-review/
+artifacts/playwright-mcp/
+
+# Editor and OS cruft
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.tmp.*
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Generated shared render libraries
+/site_libs/

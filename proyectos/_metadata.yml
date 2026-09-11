@@ -1,0 +1,6 @@
+format:
+  html:
+    page-layout: full
+    body-classes: project-page
+
+# Project pages should read more like case studies than essays.

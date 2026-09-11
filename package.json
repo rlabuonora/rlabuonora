@@ -1,0 +1,19 @@
+{
+  "name": "rlabuonora-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "design:capture": "node scripts/design-workflow.mjs capture",
+    "design:capture:live": "node scripts/capture-design-screenshots.mjs --reuse-server",
+    "design:review": "node scripts/design-workflow.mjs review --exec",
+    "design:review:interactive": "node scripts/design-workflow.mjs review",
+    "design:review:save": "node scripts/design-workflow.mjs review --exec",
+    "design:apply": "node scripts/design-workflow.mjs apply --prepare",
+    "design:status": "node scripts/design-workflow.mjs status",
+    "design:loop": "npm run design:capture && npm run design:review"
+  },
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.68",
+    "playwright": "^1.58.2"
+  }
+}

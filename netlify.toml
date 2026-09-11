@@ -1,0 +1,7 @@
+[build]
+  command = "bash scripts/netlify-build.sh"
+  publish = "_site"
+
+[build.environment]
+  QUARTO_VERSION = "1.9.38"
+  NPM_FLAGS = "--omit=dev"
