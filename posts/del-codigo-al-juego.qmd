@@ -4,7 +4,7 @@ slug: del-codigo-al-juego
 summary: "Un juego de geografía construido con Codex y las preguntas que abrió sobre programación y aprendizaje."
 date: 2026-03-01
 lang: es
-draft: true
+draft: false
 content_type: learn
 access: public
 tier: standard
