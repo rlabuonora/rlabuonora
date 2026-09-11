@@ -1,7 +1,7 @@
 ---
 title: Math Academy Review
 slug: math-academy-review
-summary: "Notes on Math Academy platform, a great tool to learn math."
+summary: "Notes on Math Academy platform, a learning-science based tool to learn math."
 date: 2025-09-29
 lang: en
 content_type: learn

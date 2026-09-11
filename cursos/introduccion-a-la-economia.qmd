@@ -15,8 +15,6 @@ tags:
 
 Introducción a la Economía es un curso básico pensado para presentar los conceptos centrales de la disciplina de forma accesible y ordenada. El objetivo no es solo cubrir contenidos, sino ayudar a construir intuición económica con ejemplos concretos y un recorrido claro.
 
-En el sitio original este curso aparecía vinculado a [econ.rlabuonora.com](https://econ.rlabuonora.com), donde estaba organizado el material. La propuesta combina explicaciones introductorias, estructura progresiva y una selección de temas pensada para estudiantes que recién empiezan.
+Los materiales están organizados en [el sitio del curso](https://econ.rlabuonora.com). La propuesta combina explicaciones introductorias, estructura progresiva y una selección de temas pensada para estudiantes que recién empiezan.
 
 El curso funciona como puerta de entrada a preguntas clásicas de la economía: cómo coordinan los mercados, por qué importan los incentivos, qué problemas intenta resolver la política pública y cómo pensar decisiones individuales y colectivas con un poco más de precisión.
-
-Más adelante esta página puede crecer con programa, materiales, ejercicios y enlaces a clases o lecturas.

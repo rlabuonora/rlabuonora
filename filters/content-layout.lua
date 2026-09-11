@@ -10,7 +10,7 @@ local function meta_list(meta_value)
     return {}
   end
 
-  if meta_value.t == "MetaList" then
+  if (meta_value.t == "MetaList" or pandoc.utils.type(meta_value) == "List") then
     local items = {}
     for _, item in ipairs(meta_value) do
       table.insert(items, stringify(item))
@@ -97,7 +97,7 @@ end
 
 local function project_label(text)
   local labels = {
-    Year = "Anio",
+    Year = "Año",
     Language = "Idioma",
     Type = "Tipo",
     Access = "Acceso",
@@ -149,9 +149,7 @@ local function blocks_for_project(meta)
   local image = stringify(meta_value(meta, "image"))
   local links = meta_value(meta, "links")
 
-  if summary and summary ~= "" then
-    blocks:insert(pandoc.Div({ pandoc.Para({ pandoc.Str(summary) }) }, pandoc.Attr("", { "project-summary" })))
-  end
+
 
   local meta_items = pandoc.List()
   if year and year ~= "" then
@@ -162,14 +160,7 @@ local function blocks_for_project(meta)
       }, pandoc.Attr("", { "project-meta-item" }))
     )
   end
-  if content_type and content_type ~= "" then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Type")) }),
-        pandoc.Para({ pandoc.Str(project_value("content_type", content_type)) })
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
+
   local language_badge = lang_badge(lang)
   if language_badge then
     meta_items:insert(
@@ -179,22 +170,8 @@ local function blocks_for_project(meta)
       }, pandoc.Attr("", { "project-meta-item" }))
     )
   end
-  if access and access ~= "" then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Access")) }),
-        pandoc.Para({ pandoc.Str(project_value("access", access)) })
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
-  if tier and tier ~= "" then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Tier")) }),
-        pandoc.Para({ pandoc.Str(project_value("tier", tier)) })
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
+
+
   if #tags > 0 then
     meta_items:insert(
       pandoc.Div({
@@ -203,20 +180,15 @@ local function blocks_for_project(meta)
       }, pandoc.Attr("", { "project-meta-item" }))
     )
   end
-  if image and image ~= "" then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Image")) }),
-        pandoc.Para({ pandoc.Str(image) })
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
 
-  if #meta_items > 0 then
+
+  local details = meta_value(meta, "project-details")
+  local show_details = details ~= false and stringify(details) ~= "false"
+  if show_details and #meta_items > 0 then
     blocks:insert(pandoc.Div(meta_items, pandoc.Attr("", { "project-meta-grid" })))
   end
 
-  if links and links.t == "MetaMap" then
+  if show_details and links and type(links) == "table" then
     local link_items = pandoc.List()
     local link_order = { "demo", "repo", "blog", "video" }
     local link_labels = {
@@ -310,9 +282,7 @@ local function blocks_for_writing(meta)
   if date and date ~= "" then
     meta_line:insert(pandoc.Span({ pandoc.Str(date) }, pandoc.Attr("", { "writing-meta-date" })))
   end
-  if content_type and content_type ~= "" then
-    meta_line:insert(pandoc.Span({ pandoc.Str(content_type) }, pandoc.Attr("", { "writing-meta-type" })))
-  end
+
   local language_badge = lang_badge(lang)
   if language_badge then
     meta_line:insert(language_badge)

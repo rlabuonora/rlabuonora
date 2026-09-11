@@ -1,7 +1,7 @@
 ---
 title: Notas
 page-layout: full
-body-classes: posts-index-page
+body-classes: posts-index-page collection-index-page
 listing:
   - id: posts-archive
     contents:
@@ -9,7 +9,7 @@ listing:
       - "!index.qmd"
     template: ../includes/editorial-archive.ejs.md
     template-params:
-      empty_message: No hay posts publicados todavia.
+      empty_message: No hay notas publicadas todavía.
     include:
       access: public
     sort: "date desc"
@@ -20,7 +20,7 @@ listing:
 <h1>Notas</h1>
 <p class="editorial-index-deck">Notas sobre datos, ciencia, tecnología y otras yerbas.</p>
 ```{=html}
-<div class="editorial-index-divider-ornament" aria-hidden="true"><span class="editorial-index-divider-segment"></span><img src="/assets/processed/raster/emblems/ui-index/magnifying-glass.png" alt="" class="editorial-index-divider-icon site-illustration-image site-illustration-image--emblem"><span class="editorial-index-divider-segment"></span></div>
+<div class="editorial-index-divider-ornament" aria-hidden="true"><span class="editorial-index-divider-segment"></span><img src="/assets/processed/raster/emblems/index/pen.svg" alt="" class="editorial-index-divider-icon site-illustration-image site-illustration-image--emblem"><span class="editorial-index-divider-segment"></span></div>
 ```
 </section>
 

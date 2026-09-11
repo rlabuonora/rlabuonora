@@ -1,15 +1,17 @@
 ---
-title: "Del código al juego, del juego al aprendizaje"
+title: "Un juego para aprender geografía"
 slug: del-codigo-al-juego
 summary: "Un juego de geografía construido con Codex y las preguntas que abrió sobre programación y aprendizaje."
 date: 2026-03-01
 lang: es
 draft: false
-content_type: learn
+content_type: build
+project-details: false
+year: 2026
 access: public
-tier: standard
+tier: flagship
 tags:
-  - vibe coding
+  - codex
   - learning
   - education
   - geography
@@ -17,7 +19,9 @@ tags:
 
 El otro fin de semana, mi hijo me hizo una pregunta: ¿cuáles son los países vecinos de India?
 
-La convertí en ![un juego](https://verdant-mochi-1d33d0.netlify.app/). Una aplicación en React, un dataset de geografía y unas horas de trabajo con Codex. Al día siguiente ya estábamos jugando.
+La convertí en [un juego](https://verdant-mochi-1d33d0.netlify.app/). Una aplicación en React, un dataset de geografía y unas horas de trabajo con Codex. Al día siguiente ya estábamos jugando.
+
+[![Juego de Geografía. Click para probarlo.](geo-game.png)](https://verdant-mochi-1d33d0.netlify.app/)
 
 Antes del *vibe coding*, poner en marcha este proyecto me habría llevado muchas más horas. Pero lo más interesante fue lo rápido que pude descubrir qué quería construir. Tener una primera versión me permitió probar una idea con mi hijo, ver qué nos divertía y empezar a imaginar qué podía mejorar.
 
@@ -30,7 +34,7 @@ Hace poco escuché a Jeremy Howard hablar de cómo el vibe coding aliena al prog
 
 Entiendo la preocupación. Cuando trabajo con código que escribí y conozco, puedo seguir su lógica, inspeccionar sus partes y entender por qué algo falla. Si delego buena parte de esa escritura, esa familiaridad no aparece por arte de magia.
 
-Pero mientras hacía el juego noté algo: cuando programo, paso mucho tiempo mirando el código. Cuando hago programo con codex, paso mucho tiempo mirando el producto que estoy generando.
+Pero mientras hacía el juego noté algo: cuando programo, paso mucho tiempo mirando el código. Cuando programo con Codex, paso mucho tiempo mirando el producto que estoy generando.
 
 Mi atención cambia de lugar. En vez de concentrarme en conectar herramientas y organizar componentes, miro el mapa, pruebo una interacción y pienso qué debería pasar después.
 

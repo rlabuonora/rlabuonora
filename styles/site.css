@@ -612,7 +612,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   min-height: 100%;
   padding: 1.3rem 0 1.4rem;
   background: transparent;
-  border-top: 1px solid rgba(216, 208, 194, 0.7);
+  border-top: 0;
   transition: border-color 170ms ease, background-color 170ms ease, opacity 170ms ease;
 }
 
@@ -1568,7 +1568,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 }
 
 .editorial-archive-list {
-  border-top: 1px solid rgba(216, 208, 194, 0.35);
+  border-top: 0;
 }
 
 .editorial-archive-item {
@@ -1595,6 +1595,8 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 }
 
 .editorial-archive-title {
+  border-bottom: 0;
+  padding-bottom: 0;
   max-width: none;
   margin: 0;
   font-family: var(--serif);
@@ -2254,4 +2256,234 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   .site-footer-nav {
     justify-content: flex-start;
   }
+}
+
+/* Finish the shared reading pages using the existing site palette. */
+body:is(.writing-page, .project-page, .course-page, .not-found-page) {
+  background: var(--paper-panel);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+body:is(.writing-page, .project-page, .course-page) h1,
+body:is(.writing-page, .project-page, .course-page) h2,
+body:is(.writing-page, .project-page, .course-page) h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+body:is(.writing-page, .course-page) .quarto-title-meta {
+  display: none;
+}
+.home-project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 640px) {
+  .home-project-grid { grid-template-columns: 1fr; }
+}
+body:is(.writing-page, .project-page, .course-page, .not-found-page) .site-footer-callout {
+  max-width: 100%;
+}
+
+/* Keep the homepage sections and footer on the same two-column grid. */
+.home-page #quarto-content {
+  padding-top: 0;
+}
+.home-page main.content {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.home-shell {
+  border-top: 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+.home-lower-grid {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  column-gap: calc((100% - 1rem) / 12);
+  row-gap: 2.5rem;
+}
+.home-writing-section,
+.home-courses-section {
+  grid-column: auto;
+}
+.home-project-title {
+  margin-top: 0 !important;
+}
+.home-page .site-footer-callout {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 2.75rem;
+}
+@media (max-width: 980px) {
+  .home-lower-grid { grid-template-columns: 1fr; }
+  .home-page .site-footer-callout { padding-inline: 1.5rem; }
+}
+@media (max-width: 640px) {
+  .home-shell { padding-top: 1rem; }
+  .home-page .site-footer-callout { padding-inline: 1rem; }
+}
+.home-page #quarto-content main.content {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.projects-index-page {
+  background: #f8f4ed;
+}
+
+/* Collection navigation keeps the title, divider and first entry in place. */
+html {
+  scrollbar-gutter: stable;
+}
+.collection-index-page {
+  background: #f8f4ed;
+}
+.collection-index-page main.content {
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+.collection-index-page .editorial-index-hero,
+.collection-index-page .editorial-index-archive {
+  width: 100%;
+}
+.collection-index-page .editorial-index-deck {
+  max-width: 100%;
+  min-height: 3.28em;
+  margin-top: 1.05rem;
+}
+.collection-index-page .editorial-index-divider-icon {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+.collection-index-page .editorial-index-archive {
+  padding-top: 0.95rem;
+}
+.collection-index-page .editorial-archive-item {
+  padding: 1.6rem 0 1.8rem;
+}
+.collection-index-page .editorial-archive-topline {
+  margin-bottom: 0.9rem;
+}
+@media (max-width: 640px) {
+  .collection-index-page .editorial-index-deck {
+    min-height: 5.04em;
+    margin-top: 1rem;
+  }
+  .collection-index-page .editorial-index-divider-icon {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+}
+
+.courses-index-page .editorial-index-divider-icon {
+  opacity: 1;
+  filter: grayscale(1) brightness(0.3);
+}
+
+/* Historical posts retain their precomputed charts and interactive maps. */
+.writing-page .html-widget {
+  max-width: 100%;
+}
+.writing-page pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.writing-page main.content img:not(.leaflet-tile) {
+  max-width: 100%;
+  height: auto;
+}
+body.writing-page #title-block-header .quarto-title-meta {
+  display: none !important;
+}
+.writing-page main.content a {
+  overflow-wrap: anywhere;
+}
+.writing-page div.sourceCode {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.writing-page main.content {
+  min-width: 0;
+  overflow-x: clip;
+}
+
+/* Photo essays keep images separate from the surrounding paragraphs. */
+.writing-page .post-photo {
+  display: flow-root;
+  clear: both;
+  float: none;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+.writing-page .post-photo img {
+  display: block;
+  float: none;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.writing-page .post-photo + p {
+  clear: both;
+}
+
+.writing-page .post-photo-pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  clear: both;
+  margin: 1.5rem 0;
+}
+.writing-page .post-photo-pair > p {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+}
+.writing-page .post-photo-pair img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.quarto-figure-center > figure > figcaption {
+  text-align: center;
+}
+
+/* Let the portrait occupy Quarto's margin beside the article. */
+.writing-page main.content:has(.bortkiewicz-portrait) {
+  overflow-x: visible;
+}
+/* Margin figures need Quarto's full grid; constrain the body via its grid tracks. */
+.writing-page main.content.page-full:has(.bortkiewicz-portrait) {
+  max-width: none;
+}
+@media (min-width: 1200px) {
+  .writing-page main.content.page-full:has(.bortkiewicz-portrait) {
+    grid-template-columns:
+      [page-start] minmax(0, 1fr)
+      [body-start body-content-start] minmax(0, 680px)
+      [body-content-end body-end margin-start] minmax(0, 1fr)
+      [margin-end page-end];
+  }
+  .writing-page main.content:has(.bortkiewicz-portrait) > .column-margin {
+    padding-left: 2rem;
+  }
+}
+
+.code-plot-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+  margin: 1rem 0;
+}
+.code-plot-cell { min-width: 0; }
+.code-plot-cell img { width: 100%; height: auto; }
+@media (max-width: 800px) {
+  .code-plot-row { grid-template-columns: 1fr; }
 }

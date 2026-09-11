@@ -1,22 +1,18 @@
 ---
-title: Page Not Found
+title: Página no encontrada
 body-classes: not-found-page
 ---
 
 <div class="not-found-shell">
 <div class="not-found-code">404</div>
 
-# This page could not be found
+# No encontramos esta página
 
-The page you were looking for does not exist, may have moved, or is not available publicly.
+La página que buscás no existe o cambió de dirección. Podés seguir explorando el sitio desde estos enlaces.
 
 <div class="not-found-links">
-<a href="/index.html">Home</a>
+<a href="/index.html">Inicio</a>
 <a href="/proyectos/index.html">Proyectos</a>
-<a href="/posts/index.html">Posts</a>
+<a href="/posts/index.html">Notas</a>
 </div>
 </div>
-
-<!-- Future logic:
-If private or bounded content gets referenced publicly, route users here or to
-a more explicit access state page. -->

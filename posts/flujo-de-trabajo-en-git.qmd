@@ -1,0 +1,279 @@
+---
+title: Flujo de trabajo en Git
+slug: flujo-de-trabajo-en-git
+date: '2021-05-06'
+lang: es
+content_type: learn
+access: public
+tier: standard
+tags:
+- Git
+- R
+---
+
+Muchas veces usamos *software* sin entender totalmente como funciona. Cuando algo (inevitablemente) sale mal, creemos que nos merecemos los tormentos que sufrimos [Read the Fucking Manual!](https://es.wikipedia.org/wiki/RTFM)
+
+En este post uso una de las *killer features* de Git para seguir el ejemplo del [capítulo de flujos de trabajo de Mastering Shiny](https://mastering-shiny.org/action-workflow.html#case-study). Esta *feature* son las branches (si bien otros SVNs tienen branches, Git las hace muy fáciles de usar).
+
+Las branches permiten tener versiones independientes de el programa que estamos desarrollando. Esto me permite moverme fácilmente entre una versión y otra y experimentar interferir con el trabajo de otros miembros del equipo.
+
+En este caso, trato de arreglar un *bug*, pero como mi idea original del problema se basa en un modelo mental incorrecto de la función que estoy usando, introduzco un montón de cambios innecesarios y/o contraproducentes en el proceso de aclarar ese malentendido en mi mente.
+
+Trabajar en una *branch* de Git me permite experimentar y una vez que llego a la solución correcta quedarme solo con los cambios que necesito, y descartar todos los cambios que no eran necesarios para la solución final.
+
+El ejemplo es una app con un selector para elegir la región y listar los registros del archivo de `csv` que pertenecen a esa región.
+
+::: {#el-ejemplo. .section .level2}
+## El ejemplo.
+
+``` r
+library(shiny)
+library(readr)
+
+sales <- readr::read_csv("https://raw.githubusercontent.com/hadley/mastering-shiny/master/sales-dashboard/sales_data_sample.csv")
+sales <- sales[c(
+    "TERRITORY", "ORDERDATE", "ORDERNUMBER", "PRODUCTCODE",
+    "QUANTITYORDERED", "PRICEEACH"
+)]
+
+ui <- fluidPage(
+    selectInput("territory", "territory", choices = unique(sales$TERRITORY)),
+    tableOutput("selected")
+)
+server <- function(input, output, session) {
+    selected <- reactive(sales[sales$TERRITORY == input$territory, ])
+    output$selected <- renderTable(head(selected(), 10))
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+Si pegás el código en RStudio y corrés la app, ves que hay un montón de `NAs`. El problema está muy bien explicado en el capítulo de Hadley que mencioné antes.
+
+Entramos al directorio de la app y chequeamos el estado de Git:
+
+``` bash
+# Bash
+cd app
+git status
+git log --oneline
+```
+
+    ## On branch master
+    ## nothing to commit, working tree clean
+    ## bff90c4 Initial commit
+
+Solo está el commit inicial.
+
+El problema está en esta expresión:
+
+``` r
+sales[sales$TERRITORY == input$territory, ]
+```
+
+Cuando `sales$TERRITORY` es `NA`, `sales$TERRITORY == input$territory` es `NA` y `sales[NA]` da una fila de `NAs`.
+
+Vamos a usar `subset` para arreglarlo, pero primero hago un branch.
+
+``` bash
+cd app
+git checkout -b demasiados_nas
+```
+
+    ## Switched to a new branch 'demasiados_nas'
+
+``` bash
+cd app
+cp app_1.R app.R
+```
+
+``` bash
+cd app
+git status
+git diff
+```
+
+    ## On branch demasiados_nas
+    ## Changes not staged for commit:
+    ##   (use "git add <file>..." to update what will be committed)
+    ##   (use "git restore <file>..." to discard changes in working directory)
+    ##  modified:   app.R
+    ## 
+    ## no changes added to commit (use "git add" and/or "git commit -a")
+    ## diff --git a/app.R b/app.R
+    ## index 7ef3837..27c80bb 100644
+    ## --- a/app.R
+    ## +++ b/app.R
+    ## @@ -12,7 +12,7 @@ ui <- fluidPage(
+    ##      tableOutput("selected")
+    ##  )
+    ##  server <- function(input, output, session) {
+    ## -    selected <- reactive(sales[sales$TERRITORY == input$territory, ])
+    ## +    selected <- reactive(subset(sales, sales$TERRITORY == input$territory))
+    ##      output$selected <- renderTable(head(selected(), 10))
+    ##  }
+    ## 
+
+[Acá](https://www.atlassian.com/git/tutorials/saving-changes/git-diff) hay más información sobre como leer esta salida. Muestra 7 líneas a partir de la línea 12. Las que empiezan con `-` son la versión anterior, y la que empieza con `+` la nueva. Commiteo el cambio y sigo.
+
+``` bash
+cd app
+git add app.R
+git commit -m "Usa subset en vez de =="
+```
+
+    ## [demasiados_nas 5a2006c] Usa subset en vez de ==
+    ##  1 file changed, 1 insertion(+), 1 deletion(-)
+
+Pero ahora me encuentro con otro problema. Como dice Hadley, los `NA` son infecciosos. Eso implica que `sales$TERRITORY == NA` es siempre `NA`, por lo si elegimo NA en el dropdown vamos a subsetear por un vector de `NA`:
+
+``` r
+subset(sales, TERRITORY == NA)
+```
+
+    ## # A tibble: 0 x 6
+    ## # … with 6 variables: TERRITORY <chr>, ORDERDATE <chr>, ORDERNUMBER <dbl>,
+    ## #   PRODUCTCODE <chr>, QUANTITYORDERED <dbl>, PRICEEACH <dbl>
+
+Para solucionar eso, podemos usar `%in%`:
+
+``` r
+subset(sales, TERRITORY %in% c("EMEA"))
+```
+
+    ## # A tibble: 1,407 x 6
+    ##    TERRITORY ORDERDATE       ORDERNUMBER PRODUCTCODE QUANTITYORDERED PRICEEACH
+    ##    <chr>     <chr>                 <dbl> <chr>                 <dbl>     <dbl>
+    ##  1 EMEA      5/7/2003 0:00         10121 S10_1678                 34      81.4
+    ##  2 EMEA      7/1/2003 0:00         10134 S10_1678                 41      94.7
+    ##  3 EMEA      11/11/2003 0:00       10180 S10_1678                 29      86.1
+    ##  4 EMEA      11/18/2003 0:00       10188 S10_1678                 48     100  
+    ##  5 EMEA      1/15/2004 0:00        10211 S10_1678                 41     100  
+    ##  6 EMEA      7/23/2004 0:00        10275 S10_1678                 45      92.8
+    ##  7 EMEA      9/30/2004 0:00        10299 S10_1678                 23     100  
+    ##  8 EMEA      10/15/2004 0:00       10309 S10_1678                 41     100  
+    ##  9 EMEA      11/24/2004 0:00       10341 S10_1678                 41     100  
+    ## 10 EMEA      2/3/2005 0:00         10375 S10_1678                 21      34.9
+    ## # … with 1,397 more rows
+
+Commiteamos el resultado.
+
+``` bash
+cd app
+git add app.R
+git commit -m "Usa %in% en vez de == en subset"
+```
+
+    ## [demasiados_nas 41b2365] Usa %in% en vez de == en subset
+    ##  1 file changed, 1 insertion(+), 1 deletion(-)
+
+Y mergear a master
+
+``` bash
+cd app
+git checkout master
+git merge demasiados_nas
+git log --all --decorate --oneline --graph
+```
+
+    ## Switched to branch 'master'
+    ## Updating bff90c4..41b2365
+    ## Fast-forward
+    ##  app.R | 2 +-
+    ##  1 file changed, 1 insertion(+), 1 deletion(-)
+    ## * 41b2365 (HEAD -> master, demasiados_nas) Usa %in% en vez de == en subset
+    ## * 5a2006c Usa subset en vez de ==
+    ## * bff90c4 Initial commit
+:::
+
+::: {#plot-twist .section .level2}
+## Plot Twist
+
+Bueno acá viene lo mejor, en el archivo original, `NA` no es `NA` de R, sino "NA" de North America. 🤦. Estuvimos todo el tiempo atrás de la pista incorrecta. En realidad `sales` no tiene `NA` en la variable `TERRITORY`.
+
+La solución correcta es especificar los NAs en la llamada a `read_csv`, para que no confunda "NA" con `NA`.
+
+``` r
+sales <- readr::read_csv("https://raw.githubusercontent.com/hadley/mastering-shiny/master/sales-dashboard/sales_data_sample.csv", na = "")
+```
+
+Pero ahora tenemos toda nuestra app plagada de cambios que hicimos cuando no entendíamos el problema!
+
+Vamos a usar Git para arreglar este problema. Usammos `git reset` para volver `master` dos commits para atrás. Así, `master` apunta al commit donde empezó el problema.
+
+``` bash
+cd app
+git reset --hard HEAD~2
+git checkout -b no_hay_nas_en_territory
+```
+
+    ## HEAD is now at bff90c4 Initial commit
+    ## Switched to a new branch 'no_hay_nas_en_territory'
+
+Hacer los cambios
+
+``` bash
+cd app
+git status
+git diff
+```
+
+    ## On branch no_hay_nas_en_territory
+    ## Changes not staged for commit:
+    ##   (use "git add <file>..." to update what will be committed)
+    ##   (use "git restore <file>..." to discard changes in working directory)
+    ##  modified:   app.R
+    ## 
+    ## no changes added to commit (use "git add" and/or "git commit -a")
+    ## diff --git a/app.R b/app.R
+    ## index 7ef3837..387e0c9 100644
+    ## --- a/app.R
+    ## +++ b/app.R
+    ## @@ -1,7 +1,7 @@
+    ##  library(shiny)
+    ##  library(readr)
+    ##  
+    ## -sales <- readr::read_csv("https://raw.githubusercontent.com/hadley/mastering-shiny/master/sales-dashboard/sales_data_sample.csv")
+    ## +sales <- readr::read_csv("https://raw.githubusercontent.com/hadley/mastering-shiny/master/sales-dashboard/sales_data_sample.csv", na = "")
+    ##  sales <- sales[c(
+    ##      "TERRITORY", "ORDERDATE", "ORDERNUMBER", "PRODUCTCODE",
+    ##      "QUANTITYORDERED", "PRICEEACH"
+
+La línea que había que cambiar era la 7!
+
+``` bash
+cd app
+git add app.R
+git commit -m "Agrega argumento na a la llamada a read_csv"
+git log --all --decorate --oneline --graph
+```
+
+    ## [no_hay_nas_en_territory fbc196e] Agrega argumento na a la llamada a read_csv
+    ##  1 file changed, 1 insertion(+), 1 deletion(-)
+    ## * fbc196e (HEAD -> no_hay_nas_en_territory) Agrega argumento na a la llamada a read_csv
+    ## | * 41b2365 (demasiados_nas) Usa %in% en vez de == en subset
+    ## | * 5a2006c Usa subset en vez de ==
+    ## |/  
+    ## * bff90c4 (master) Initial commit
+
+Ahora tengo que mergeamos estos estos cambios con master.
+
+``` bash
+cd app
+git checkout master
+git merge no_hay_nas_en_territory
+git log --all --decorate --oneline --graph
+```
+
+    ## Switched to branch 'master'
+    ## Updating bff90c4..fbc196e
+    ## Fast-forward
+    ##  app.R | 2 +-
+    ##  1 file changed, 1 insertion(+), 1 deletion(-)
+    ## * fbc196e (HEAD -> master, no_hay_nas_en_territory) Agrega argumento na a la llamada a read_csv
+    ## | * 41b2365 (demasiados_nas) Usa %in% en vez de == en subset
+    ## | * 5a2006c Usa subset en vez de ==
+    ## |/  
+    ## * bff90c4 Initial commit
+:::

@@ -1,9 +1,10 @@
 ---
-title: About
+title: Acerca
+lang: es
+body-classes: writing-page
+page-layout: article
 ---
 
-# About
+Soy Rafael La Buonora, generalista en software y datos. En este sitio comparto proyectos, notas y materiales de cursos.
 
-This page is a simple placeholder for biography, approach, and contact details.
-
-It can later expand into a more editorial profile without changing the site structure.
+Trabajo con aplicaciones y visualizaciones que ayudan a explorar datos y entender problemas. Entre mis proyectos está la [plataforma de gestión y analítica de FUCREA](proyectos/fucrea.qmd). También enseño [economía y ciencia de datos](cursos/index.qmd).

@@ -1,0 +1,132 @@
+---
+title: Subtitular películas con Whisper
+slug: using-ai-to-create-movie-subtitles
+date: '2025-02-17'
+lang: es
+content_type: learn
+access: public
+tier: standard
+tags: []
+---
+
+Estoy tratando de aprender portugués viendo películas. Lo ideal es tener los subtítulos en portugués, e ir consultando cuando aparecen palabras nuevas. Esto funciona excelente con las plataformas, donde pude ver Ciudad de Dios, pero se complica cuando hay que recurrir a los corsarios [🏴‍☠️]{style="font-size: 24px;"} para proveerse de cultura.
+
+Una peli que tengo muchas ganas de ver es O Auto da Compadecida, que solo encontré sin subtítulos. Se me ocurrió usar [Whisper](https://cdn.openai.com/papers/whisper.pdf) para transcribir el audio directamente. Como tengo una Mac nueva con GPU, pensé que el modelo podía andar bien localmente, pero Whisper no es compatible con la GPU de mi MAC, y con la CPU es bastante lento así que usé una instancia EC2 en AWS.
+
+::: {#aws .section .level2}
+## AWS
+
+EC2 tiene una AMI con Ubuntu preparada para tareas de deep learning. El tipo de instancia es el más barato con GPUs: `g4dn.xlarge`. Una vez lanzada la instancia, actualizamos el OS e instalamos los requerimientos:
+
+``` bash
+# actualizar el OS 
+sudo apt update && sudo apt install -y ffmpeg
+# instalar las dependencias:
+sudo apt install -y python3-venv python3-pip
+# crear ambiente virtual 
+python3 -m venv whisper_env
+# activarlo
+source whisper_env/bin/activate
+# instalar whisper 
+pip install openai-whisper
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+`ffmpeg` puede extraer un archivo mp3 de un archivo de video:
+
+``` bash
+ffmpeg -i o_auto_da_compadecida.mp4 -vn -acodec libmp3lame o_auto_da_compadecida.mp3
+```
+
+Para subirlo a la instancia tenemos dos opciones: scp o S3. Copiamos el mp3 con `scp` y nos logueamos a la instancia para correr whisper:
+
+``` bash
+whisper o_auto_da_compadecida.mp3 --model medium --language Portuguese --task transcribe --output_format srt
+```
+
+``` bash
+head -n 10 o_auto_da_compadecida.srt
+```
+
+La transcripción tiene algunos problemas al principio, pero después parece dar bien (aunque habría que mirar la peli completa para verifarlo). Hay que tener en cuenta que esta instancia es cara (\~ 0.5 USD/hora) por lo que hay que pararla cuando no la usomos. La dejé prendida una noche sin usarla y me salió como 5 USD. Lección aprendida. Subir los archivos a S3 en vez de usar `scp` también puede ser mejor.
+:::
+
+::: {#automatizar-aws .section .level1}
+# Automatizar AWS
+
+La solución que se me ocurre para automatizar un poco el proceso es subir el archivo a S3 y configurar lambda para que lance la instancia, corra whisper, suba el archivo srt a S3 de vuelta y termine la instancia.
+
+Lo primero que hay que resolver bien es el tema de los permisos. La instancia que corre whisper tiene que tener permisos para leer y escribir en S3. Lo más complejo es que lambda tiene que tener permisos para crear una instancia **y asignarle los permisos para leer y escribir a S3**.
+
+La función lambda es invocada cuando alguien sube un mp3 al bucket, toma el nombre del archivo, lanza la instancia y la configura con un script user_data. Este script:
+
+- Instala los requerimientos
+- Descarga el archivo de S3
+- Corre whisper con ese archivo
+- Sube el srt a S3
+- Termina la instancia
+
+``` python
+import boto3
+
+ec2 = boto3.client("ec2")
+
+AMI_ID = "ami-0a844bb563d863f8c"  
+INSTANCE_TYPE = "g4dn.xlarge"  
+S3_BUCKET = "INPUT_BUCKET"
+S3_OUTPUT_BUCKET = "OUTPUT_BUCKET"
+
+SECURITY_GROUP_ID = "sg-0f5fec4ef93ab7b79"
+
+def lambda_handler(event, context):
+    # Extract audio file name from the event
+    s3_object = event["Records"][0]["s3"]["object"]["key"]
+    base_filename = s3_object.rsplit(".", 1)[0]
+
+    # Launch EC2 instance
+    response = ec2.run_instances(
+        ImageId=AMI_ID,
+        InstanceType=INSTANCE_TYPE,
+        KeyName="deep_learning_instance_2",
+        SecurityGroupIds=[SECURITY_GROUP_ID], 
+        MinCount=1,
+        MaxCount=1,
+        InstanceMarketOptions={  
+            "MarketType": "spot",
+            "SpotOptions": {
+                "SpotInstanceType": "one-time",  
+                "InstanceInterruptionBehavior": "terminate"  
+            }
+        },
+        IamInstanceProfile={'Name': 'EC2-S3-Access'},
+        UserData=f'''#!/bin/bash
+        apt update && apt install -y ffmpeg git python3-pip
+        apt install -y ffmpeg git python3 python3-pip
+        # Instalar Whisper AI
+        pip3 install openai-whisper
+
+        # Instalar PyTorch con CUDA 
+        pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+        aws s3 cp s3://{S3_BUCKET}/{s3_object} /home/ubuntu/{s3_object}
+        whisper /home/ubuntu/{base_filename}.mp3 --language Portuguese --model medium --task transcribe --output_format srt --device cuda
+        aws s3 cp /home/ubuntu/{base_filename}.srt s3://{S3_OUTPUT_BUCKET}/{base_filename}.srt
+        shutdown -h now
+        ''',
+        TagSpecifications=[{
+            'ResourceType': 'instance',
+            'Tags': [{'Key': 'Purpose', 'Value': 'WhisperProcessing'}]
+        }]
+    )
+
+    instance_id = response['Instances'][0]['InstanceId']
+    print(f"EC2 Instance Launched: {instance_id} for file {s3_object}")
+    return {"message": f"Processing started for {s3_object}, EC2 instance {instance_id} launched."}
+```
+:::
+
+::: {#takeaways .section .level1}
+# Takeaways
+
+Después de ver una peli subtitulada con Whisper creo que es una gran opción para este caso de uso. Creo que configurar lambda para automatizar todo no vale la pena.
+:::

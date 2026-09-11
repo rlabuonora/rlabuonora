@@ -1,84 +1,55 @@
 ---
 title: Proyectos
 page-layout: full
-body-classes: projects-index-page
+body-classes: projects-index-page collection-index-page
 listing:
-  - id: projects-flagship
-    contents:
-      - "*.qmd"
-      - "!index.qmd"
-    template: ../includes/projects-featured.ejs.md
-    template-params:
-      empty_message: No hay proyectos destacados todavía.
-      max_items: 2
-    include:
-      access: public
-      tier: flagship
-    sort: "year desc"
-  - id: projects-featured
-    contents:
-      - "*.qmd"
-      - "!index.qmd"
-    template: ../includes/projects-recent.ejs.md
-    template-params:
-      empty_message: No hay otros proyectos publicados todavía.
-    include:
-      access: public
-      tier: featured
-    sort: "year desc"
-  - id: projects-archive
+  - id: projects-all
     contents:
       - "*.qmd"
       - "!index.qmd"
     template: ../includes/editorial-archive.ejs.md
     template-params:
-      empty_message: No hay proyectos en el archivo todavía.
+      empty_message: No hay proyectos publicados todavía.
       meta_field: year
-      max_tags: 2
     include:
       access: public
-      tier: archive
     sort: "year desc"
 ---
 
-<div class="editorial-index-shell projects-layered-shell">
+<div class="editorial-index-shell">
 <section class="editorial-index-hero">
 <h1>Proyectos</h1>
 <p class="editorial-index-deck">Algunos proyectos y estudios de caso de cosas interesantes en las que trabajé.</p>
 ```{=html}
-<div class="editorial-index-divider-ornament" aria-hidden="true"><span class="editorial-index-divider-segment"></span><img src="/assets/processed/raster/emblems/ui-index/drafting-compass.png" alt="" class="editorial-index-divider-icon site-illustration-image site-illustration-image--emblem"><span class="editorial-index-divider-segment"></span></div>
+<div class="editorial-index-divider-ornament" aria-hidden="true"><span class="editorial-index-divider-segment"></span><img src="/assets/icons/drafting-compass.svg" alt="" class="editorial-index-divider-icon site-illustration-image site-illustration-image--emblem"><span class="editorial-index-divider-segment"></span></div>
 ```
 </section>
 
-<section class="projects-index-section projects-index-section--flagship">
-<div class="projects-index-section-header projects-index-section-header-featured">
-  <h2>Proyectos destacados</h2>
-</div>
-::: {#projects-flagship}
+<section class="editorial-index-archive">
+::: {#projects-all}
 :::
 </section>
 
-<section class="projects-index-section projects-index-section--secondary">
-<div class="projects-index-section-header">
-  <h2>Otros proyectos</h2>
+<section class="editorial-index-archive" aria-label="Otros proyectos">
+```{=html}
+<div class="editorial-archive-list">
+<article class="editorial-archive-item">
+<h2 class="editorial-archive-title"><a href="https://frontend-mentor-rock-paper-scissors.netlify.app/">Piedra, papel o tijera ↗</a></h2>
+<p class="editorial-archive-summary">Clásico Juego en React</p>
+</article>
+<article class="editorial-archive-item">
+<h2 class="editorial-archive-title"><a href="https://rlabuonora.shinyapps.io/productores_familiares_app">Productores Familiares ↗</a></h2>
+<p class="editorial-archive-summary">Dashboard para mejorar la logística de las compras públicas de alimentos</p>
+</article>
+<article class="editorial-archive-item">
+<h2 class="editorial-archive-title"><a href="https://react-calculadora.netlify.app">Calculadora ↗</a></h2>
+<p class="editorial-archive-summary">Una calculadora implementada en React</p>
+</article>
+<article class="editorial-archive-item">
+<h2 class="editorial-archive-title"><a href="https://cienciassociales.edu.uy/wp-content/uploads/2020/03/Descripci%C3%B3n-y-resultados-EFHU2.pdf">Imputación EFHU ↗</a></h2>
+<p class="editorial-archive-summary">Código para la imputación múltiple de la Encuesta Financiera de los Hogares Uruguayos.</p>
+</article>
 </div>
-::: {#projects-featured}
-:::
+```
 </section>
-
-<p class="projects-index-closing">
-  <a href="#projects-archive-section" class="projects-index-browse">Ver todos los proyectos en el archivo</a>
-</p>
-
-<section class="projects-index-section projects-index-section--archive" id="projects-archive-section">
-<div class="projects-index-section-header">
-  <h2>Archivo</h2>
 </div>
-::: {#projects-archive}
-:::
-</section>
-</div>
-
-<!-- Projects index rule:
-Only `access: public` items are listed here.
-Projects page grouping and homepage prominence are both controlled by `tier: flagship | featured | archive`. -->

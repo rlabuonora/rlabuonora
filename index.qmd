@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Inicio
 body-classes: home-page
 page-layout: full
 listing:
@@ -19,7 +19,6 @@ listing:
     template: includes/home-writing.ejs.md
     include:
       access: public
-      tier: flagship
     sort: "date desc"
   - id: home-flagship-cursos
     contents:
@@ -39,27 +38,13 @@ listing:
 <div class="home-hero-copy">
 <!-- <p class="home-hero-kicker">Sitio personal</p> -->
 <h1>Rafael La Buonora</h1>
-<p class="home-hero-deck">Generalista en software y datos.</p>
-<p class="home-hero-lead">Acá programo, aprendo y escribo.</p>
+<p class="home-hero-deck">Generalista</p>
 </div>
 
 <div class="home-hero-figure site-illustration site-illustration--skyline">
-<img src="assets/raw/mvd-hero.png" alt="Montevideo skyline line drawing" class="home-hero-image site-illustration-image site-illustration-image--skyline">
+<img src="assets/raw/mvd-hero.png" alt="Ilustración de la costa de Montevideo" class="home-hero-image site-illustration-image site-illustration-image--skyline">
 </div>
 </div>
-
-<section class="home-section home-section--projects">
-<div class="home-section-header">
-<div class="home-section-heading-group">
-<h2>Proyectos</h2>
-<p class="home-section-copy">Algunas cosas en las que trabajé recientemente.</p>
-</div>
-<a href="/proyectos/index.html" class="home-section-link">Ver todo</a>
-</div>
-
-::: {#home-flagship-projects}
-:::
-</section>
 
 <div class="home-lower-grid">
 <section class="home-section home-writing-section home-section--writing">
@@ -88,8 +73,17 @@ listing:
 :::
 </section>
 </div>
+
+<section class="home-section home-section--projects">
+<div class="home-section-header">
+<div class="home-section-heading-group">
+<h2>Proyectos</h2>
+<p class="home-section-copy">Algunas cosas en las que trabajé recientemente.</p>
+</div>
+<a href="/proyectos/index.html" class="home-section-link">Ver todo</a>
 </div>
 
-<!-- Homepage curation rule:
-Only items with `access: public` and `tier: flagship` should appear here.
-Control homepage appearance by editing those fields in each item front matter. -->
+::: {#home-flagship-projects}
+:::
+</section>
+</div>

@@ -1,9 +1,9 @@
 ```{=html}
 <div class="home-writing-list">
 <% if (!items.length) { %>
-  <p class="home-listing-empty">No flagship public writing yet.</p>
+  <p class="home-listing-empty">No hay publicaciones todavía.</p>
 <% } %>
-<% for (const item of items) { %>
+<% for (const item of items.slice(0, 3)) { %>
   <article class="home-writing-item">
     <div class="home-writing-body">
       <div class="home-writing-topline">

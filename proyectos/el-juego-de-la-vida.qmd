@@ -6,12 +6,14 @@ year: 2017
 lang: es
 content_type: build
 access: public
-tier: flagship
+tier: standard
 tags:
   - react
   - ui/ux
 image: assets/processed/raster/emblems/library.png
 ---
+
+[Abrir El Juego de la Vida ↗](https://juego-de-la-vida.netlify.app)
 
 ## El proyecto
 
@@ -25,16 +27,6 @@ Muchos proyectos basados en simulacion muestran bien la logica, pero no siempre 
 
 Construimos una interfaz web que permite iniciar, pausar, reiniciar y modificar la simulacion en tiempo real. El sistema traduce reglas simples de vecindad en una experiencia visual donde el interes aparece por acumulacion, repeticion y sorpresa.
 
-## Visuales
-
-![Placeholder project visual](../assets/processed/raster/emblems/library.png)
-
-Este espacio puede reemplazarse luego por capturas del tablero, estados iniciales interesantes y ejemplos de patrones.
-
 ## Aprendizajes
 
 En proyectos interactivos de este tipo, la claridad de la interfaz importa tanto como la logica interna. Cuando las reglas son simples, la diferencia entre una demo olvidable y una buena experiencia suele estar en el ritmo de la interaccion.
-
-## Enlaces relacionados
-
-- Agrega enlaces de demo o repositorio en el front matter cuando quieras mostrarlos.

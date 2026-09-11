@@ -19,8 +19,10 @@ const topLevelPages = [
   { id: "courses-index", path: "/cursos/index.html", label: "Courses index" }
 ];
 const detailPages = [
-  { id: "project", path: "/proyectos/data-forge-toolkit.html", label: "Project page" },
-  { id: "article", path: "/posts/designing-a-personal-site.html", label: "Article page" }
+  { id: "about", path: "/about.html", label: "About" },
+  { id: "course", path: "/cursos/r-for-sports-data-science.html", label: "Course" },
+  { id: "project", path: "/proyectos/fucrea.html", label: "Project page" },
+  { id: "article", path: "/posts/horse-kick-data.html", label: "Article page" }
 ];
 const pages = includeDetailPages
   ? [...topLevelPages, ...detailPages]

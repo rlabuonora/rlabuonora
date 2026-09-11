@@ -1,0 +1,85 @@
+---
+title: Muerte por patada de caballo prusiano
+slug: horse-kick-data
+summary: "Un ejemplo clásico de la distribución de Poisson: las muertes por patadas de caballo en el ejército prusiano, analizadas con R."
+date: '2026-01-10'
+lang: es
+content_type: learn
+access: public
+tier: standard
+tags: []
+---
+
+![Ladislaus von Bortkiewicz](/assets/posts/horse-kick-data/Ladislaus_Bortkiewicz.jpg){.column-margin .bortkiewicz-portrait width=180}
+
+En la época de la guerra Franco-Prusiana, los prusianos llevaban registros detallados de la muerte de los soldados. Cada vez que un caballo mataba a a un soldado de una patada, anotaban:
+
+![](/assets/posts/horse-kick-data/tabla.png)
+
+La tabla anterior muestra los datos de 20 años para 14 cuerpos. Cada combinación de año-cuerpo representa una observación. No pases rápido esta parte porque es importante para entender lo que viene después.
+
+Cada año cuerpo es una *unidad de exposición* al riesgo de que un caballo te pegue una patada. El riesgo no lo corre el soldado, ni en cuerpo, ni el año. El riesgo lo corre el año-cuerpo. Los datos estan disponibles en un paquete de R:
+
+    ## # A tibble: 6 × 3
+    ##   corps  year  kick
+    ##   <fct> <int> <int>
+    ## 1 G      1875     0
+    ## 2 I      1875     0
+    ## 3 II     1875     0
+    ## 4 III    1875     0
+    ## 5 IV     1875     0
+    ## 6 V      1875     0
+
+Los datos nos dicen cuantas veces ocurrió el evento para 240 unidades de exposición al riesgo. La mayor parte de las veces, el evento no ocurre. Entre 1875 y 1894, los datos tienen hubo 196 muertos por patadas de caballo.
+
+Como el evento es bastante raro, en la mayor parte de las unidades de exposición al riesgo, el evento no ocurrió. En el peor escenario, un cuerpo perdía 4 soldados en un año por esta causa (cuerpos XIV en el 80 y el 82):
+
+``` r
+patadas |> 
+  filter(kick==4)
+```
+
+    ## # A tibble: 2 × 3
+    ##   corps  year  kick
+    ##   <fct> <int> <int>
+    ## 1 XIV    1880     4
+    ## 2 XIV    1882     4
+
+Si miramos toda la distribución vemos que la cantidad de unidades decrece rápidamente con la cantidad de ocurrencias del evento: la mayor parte de las veces la cantidad es 0, algunos tienen 1 muerto, pocos 2, muy pocos 3 y casi ninguno 4:
+
+![](/assets/posts/horse-kick-data/observed-transparent.png){width="336"}
+
+En promedio, las unidades registran el evento 0.7 veces. O sea, para cada año y para cada cuerpo, el promedio de soldados muertos es 0.7.
+
+[Ladislaus von Bortkeiwicz](https://en.wikipedia.org/wiki/Ladislaus_Bortkiewicz) descubrió que estos datos siguen una distribución Poisson. Esta distribución sirve para modelar eventos raros que suceden en forma independiente con una tasa de ocurrencia ([$\lambda$]{.math .inline}) constante.
+
+Si [$X$]{.math .inline} sigue una distribución Poisson, [$\lambda$]{.math .inline} es la esperanza de ocurrencia del evento por *unidad de exposición*. Por eso te dije que prestaras atención al principio. El estimador de [$\lambda$]{.math .inline} es el promedio de ocurrencias del evento para las unidades de exposición: 0.7. Una vez que tenemos un estimador de [$\lambda$]{.math .inline}, podemos calcular cuantas veces esperamos ver 0, 1, 2, 3 y 4 muertos usando la función de densidad:
+
+[$$ P(X=x) = \frac{e^{-\lambda}  \lambda^x}{x!} $$]{.math .display}
+
+No tengo idea de cómo se calculaba esto en Europa del Este a fines del siglo XIX, pero en R es fácil con la función `dpois`:
+
+::::: {.column-page}
+:::: {.code-plot-row}
+::: {.code-plot-cell}
+``` r
+lambda <- mean(patadas$kick)
+
+cuentas <- cuentas |> 
+  mutate(pred=dpois(muertes, lambda) * sum(n)) |> 
+  tidyr::pivot_longer(-muertes)
+
+cuentas |> 
+  ggplot(aes(muertes, value, fill=name)) + 
+  geom_col(position="dodge") +
+  scale_fill_manual("",
+    values = c("#1E1C1A", "#6E6B68")) +
+  labs(x="Muertes por patada", y="N")
+```
+:::
+
+::: {.code-plot-cell}
+![](/assets/posts/horse-kick-data/fitted-transparent.png){width="100%"}
+:::
+::::
+:::::

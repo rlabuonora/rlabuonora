@@ -6,6 +6,9 @@ project:
     - "cursos/**/*.qmd"
     - "proyectos/**/*.qmd"
     - "posts/**/*.qmd"
+    - "!drafts/**"
+  resources:
+    - assets/posts/**
 
 website:
   title: "Rafael La Buonora"
@@ -33,7 +36,4 @@ format:
     filters:
       - filters/content-layout.lua
 
-# Future editorial model:
-# - keep `content_type`, `access`, and `tier` in item front matter
-# - add listing/pipeline logic so only `access: public` items are rendered publicly
-# - tier can later drive homepage prominence and collection ordering
+# Publishing conventions and release checks: docs/content-model.md

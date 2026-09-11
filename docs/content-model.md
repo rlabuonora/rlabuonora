@@ -1,154 +1,55 @@
-# Content Model
+# Publishing the site
 
-This site has two public-facing collections:
+The public site has three collections: `proyectos/`, `posts/`, and `cursos/`.
+Write content in Quarto (`.qmd`) and keep filenames stable so existing URLs continue working.
 
-- `proyectos/`
-- `posts/`
-- `cursos/`
+## Metadata
 
-Use the same small set of editorial fields across these collections so filtering and promotion stay predictable.
+Use `title`, `summary`, `lang` (`es` or `en`), and `tags` on collection items.
+Projects use `year` and `content_type: build`; notes and courses use `date` and
+`content_type: learn` or `reflect`. The content type selects the detail layout;
+it is not displayed to readers.
 
-## Shared Editorial Fields
+All publishable items currently have `access: public`. This field filters listings,
+not the rendered output: it is not an access-control mechanism. Keep unpublished
+material under `drafts/`, which is explicitly excluded from rendering. Private/bounded publishing is deferred.
 
-- `lang`
-  - `es`: Spanish
-  - `en`: English
-- `content_type`
-  - `proyectos/`: always `build`
-  - `posts/`: `learn` or `reflect`
-  - `cursos/`: usually `learn`
-- `access`
-  - `private`: not intended for the public site
-  - `bounded`: selectively shareable, but not generally public
-  - `public`: safe to surface on the public site
-- `tier`
-  - `flagship`: cornerstone work or writing
-  - `featured`: strong items worth highlighting
-  - `standard`: normal published items
-  - `archive`: older or lower-priority items that should remain accessible
+## Listings and homepage
 
-For now, every content item should include these fields even if the site is not yet enforcing visibility rules automatically.
+Each collection index lists every public item, newest first. Projects are sorted
+by year; notes and courses by date. There are no separate project archive tiers.
 
-## Homepage Rule
+The homepage shows up to three public projects marked `tier: flagship`, the three
+latest public notes, and public courses marked `tier: flagship`. Use
+`tier: standard` for projects and courses that belong only in their collection.
+Other historical tier values can remain in metadata but have no special index layout.
 
-The homepage is curated and should only show items that match both of these fields:
+## Detail pages
 
-- `access: public`
-- `tier: flagship`
+Projects show their summary, year, language, tags, and optional `links` (`demo`,
+`repo`, `blog`, `video`). Add real screenshots in the body when useful. Internal
+access/tier fields and image filenames are not displayed.
 
-That means homepage visibility is controlled directly in each document's front matter. If an item should disappear from the homepage without becoming private, change `tier` from `flagship` to `featured`, `standard`, or `archive`.
+Notes and courses use a reading layout with a summary, date, language, and tags.
+Keep existing English articles in English and Spanish articles in Spanish.
+The site navigation is Spanish.
 
-## Recommended Project Front Matter
+## Release check
 
-```yaml
----
-title: Example Project
-slug: example-project
-summary: One clear sentence describing the project.
-year: 2026
-lang: es
-content_type: build
-access: public
-tier: standard
-tags:
-  - design
-  - research
-image: assets/example.png
-links:
-  demo: https://example.com
-  repo: https://github.com/example/repo
-  blog: https://example.com/blog/example-project
-  video: https://example.com/video/example-project
----
+Run `quarto render`; the deployable output is `_site/`. If the local environment
+cannot write the default cache, use `XDG_CACHE_HOME=/tmp/quarto-cache quarto render`.
+
+Inspect home, collection indexes, About, and representative detail pages at desktop
+and mobile widths. Check navigation, local links, screenshots, and text overflow.
+With Node and the package dependencies installed, capture these pages using:
+
+```sh
+node scripts/capture-design-screenshots.mjs --include-detail-pages
 ```
 
-## Recommended Writing Front Matter
+No deployment provider or automated deployment workflow is configured in this
+repository. Configure the intended host to serve `_site/` after rendering; confirm
+the production destination before publishing.
 
-```yaml
----
-title: Example Essay
-slug: example-essay
-summary: One clear sentence describing the piece.
-date: 2026-03-17
-lang: en
-content_type: reflect
-access: public
-tier: standard
-tags:
-  - publishing
-  - notes
-image: assets/example.png
----
-```
-
-Notes:
-
-- Keep filenames lowercase and hyphenated, for example `proyectos/example-project.qmd`.
-- Match the `slug` to the filename unless there is a strong reason not to.
-- Use `summary` for listing pages and cards.
-- Keep `tags` short and stable so they remain usable for future filtering.
-- Set `lang` on every project, post, and course so the site can render a visible language badge.
-- If `lang` is missing, listings and detail pages hide the badge instead of failing.
-
-## Authoring Conventions
-
-Project pages and writing pages should not be authored the same way.
-
-### Projects
-
-Project pages render with a case-study layout. Put the metadata in front matter, then write the body using sections such as:
-
-- `## Overview`
-- `## Context / Problem`
-- `## What I Built`
-- `## Visuals`
-- `## What I Learned`
-- `## Related Links`
-
-The page will automatically render:
-
-- a project summary block
-- a metadata grid
-- a language badge in listings and in the project metadata grid when `lang` is present
-- a top links block when `links.demo`, `links.repo`, `links.blog`, or `links.video` are present
-
-### Posts
-
-Writing pages render with a lighter reading layout. Keep the body more essay-like and avoid forcing it into a project structure.
-
-The page will automatically render:
-
-- the summary
-- a metadata line with `date`, `lang`, `content_type`, and `tags`
-- an optional related block at the bottom if you add `related_project` or `related_writing`
-
-## Language Badge Rendering
-
-Language badges are rendered automatically from front matter:
-
-- `lang: es` renders `ES`
-- `lang: en` renders `EN`
-
-They currently appear in:
-
-- homepage cards
-- archive/listing cards
-- project detail page metadata
-- writing detail page metadata
-
-To set the language, add `lang` directly in the front matter of each file in:
-
-- `proyectos/*.qmd`
-- `posts/*.qmd`
-- `cursos/*.qmd`
-
-Example related metadata:
-
-```yaml
-related_project:
-  title: Example Project
-  href: /proyectos/example-project.html
-related_writing:
-  - title: Another Essay
-    href: /posts/another-essay.html
-```
+The current visual direction is complete for this release. New illustration work,
+extra template families, CSS reorganization, and publishing access rules are deferred.
