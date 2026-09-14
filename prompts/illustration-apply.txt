@@ -1,0 +1,44 @@
+Use the illustration review findings as your starting point.
+
+First:
+- read the illustration review findings carefully
+- inspect the relevant Quarto project files, templates, CSS, and image usage before making changes
+- identify the highest-value normalization fixes only
+
+Before editing any files:
+- briefly explain the changes you plan to make
+- keep that explanation concise and focused on the most important illustration adjustments
+
+When implementing improvements:
+- preserve the site's minimalist, editorial, atlas-inspired identity
+- treat illustrations as part of a designed system, not standalone decorative assets
+- prefer normalization over redesign
+- improve paper tone, safe area, scale, centering, contrast, and rendering consistency where needed
+- keep the relationship between illustration and layout calm and intentional
+
+Use this normalization order:
+1. reduce contrast or harshness if the linework is visually too loud
+2. align the illustration background or paper tone with the site's palette
+3. correct safe area and internal padding
+4. adjust object scale within the canvas
+5. fix optical centering
+6. remove disallowed features such as heavy shadows, ground lines, or inconsistent edge artifacts
+7. only then adjust CSS or markup wrappers if layout treatment is still inconsistent
+
+Avoid:
+- broad site redesigns
+- generic blog styling
+- app-like UI treatments
+- using CSS to compensate for obviously mismatched source assets when the asset itself should be normalized
+- adding decorative frames, effects, or complexity to hide inconsistency
+
+Implementation guidance:
+- prioritize the smallest changes with the strongest coherence payoff
+- if a source asset needs normalization, prepare or document that pipeline change clearly
+- use shared wrappers and rendering rules when the problem is systemic
+- if a possible change is low-value or debatable, skip it
+
+After making changes:
+- summarize what was changed
+- explain whether each fix was an asset normalization change or a CSS/layout rendering change
+- explain how the refinements improved coherence, restraint, and consistency across the illustration system

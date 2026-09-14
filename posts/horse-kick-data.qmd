@@ -1,6 +1,7 @@
 ---
 title: Muerte por patada de caballo prusiano
 slug: horse-kick-data
+summary: "Un ejemplo clásico de la distribución de Poisson: las muertes por patadas de caballo en el ejército prusiano, analizadas con R."
 date: '2026-01-10'
 lang: es
 content_type: learn

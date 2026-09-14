@@ -38,8 +38,7 @@ listing:
 <div class="home-hero-copy">
 <!-- <p class="home-hero-kicker">Sitio personal</p> -->
 <h1>Rafael La Buonora</h1>
-<p class="home-hero-deck">Generalista en software y datos.</p>
-<p class="home-hero-lead">Acá programo, aprendo y escribo.</p>
+<p class="home-hero-deck">Generalista</p>
 </div>
 
 <div class="home-hero-figure site-illustration site-illustration--skyline">

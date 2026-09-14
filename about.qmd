@@ -8,7 +8,3 @@ page-layout: article
 Soy Rafael La Buonora, generalista en software y datos. En este sitio comparto proyectos, notas y materiales de cursos.
 
 Trabajo con aplicaciones y visualizaciones que ayudan a explorar datos y entender problemas. Entre mis proyectos está la [plataforma de gestión y analítica de FUCREA](proyectos/fucrea.qmd). También enseño [economía y ciencia de datos](cursos/index.qmd).
-
-Me interesa aprender construyendo: desde un [juego de geografía](proyectos/del-codigo-al-juego.qmd) hasta herramientas para trabajar con datos. En las [notas](posts/index.qmd) escribo sobre esas experiencias y las preguntas que me dejan.
-
-Podés encontrarme en [GitHub](https://github.com/rlabuonora).

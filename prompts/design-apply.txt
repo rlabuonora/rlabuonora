@@ -1,0 +1,34 @@
+Use the screenshot review findings as your starting point.
+
+First:
+- read the review findings carefully
+- inspect the relevant Quarto project files, templates, includes, and CSS before making changes
+- identify the highest-value visual refinements only
+
+Before editing any files:
+- briefly explain the changes you plan to make
+- keep that explanation concise and focused on the most important visual adjustments
+
+When implementing improvements:
+- preserve the site's minimalist, editorial, atlas-inspired identity
+- prefer removing clutter over adding new components
+- focus on spacing, typography, alignment, and illustration usage
+- improve coherence between homepage and inner pages where needed
+- make restrained, high-leverage refinements rather than redesigning sections
+
+Avoid:
+- generic blog styling
+- app-like UI patterns
+- startup-style visual treatments
+- unnecessary cards, badges, buttons, or decorative flourishes
+- adding complexity when simplification would improve the page
+
+Implementation guidance:
+- prioritize CSS and markup refinements with the strongest visual payoff
+- keep the existing design language intact
+- do not broaden the scope beyond the review's most important issues
+- if a possible change is debatable or low-value, skip it
+
+After making changes:
+- summarize what was changed
+- explain how the refinements improve rhythm, hierarchy, spacing, or overall coherence

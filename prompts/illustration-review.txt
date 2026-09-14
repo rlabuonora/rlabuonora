@@ -1,0 +1,62 @@
+Review the attached screenshots of my Quarto site as a design critic focused on illustration coherence, restraint, and publication quality.
+
+Assess the illustrations in context, not as isolated assets. Reference specific screenshots by page and device when making observations.
+
+Focus your review on:
+- whether each illustration feels integrated with the page's typography, spacing, and editorial rhythm
+- background color or paper tone mismatch against the site's off-white palette
+- safe area and padding around the illustrated object
+- object scale within the frame or canvas
+- optical centering, not just geometric centering
+- line weight, engraving density, and overall contrast
+- shadows, ground lines, edge artifacts, or other features that make the illustration feel inconsistent with the system
+- inconsistencies between section emblems, hero illustrations, post illustrations, and logo-like imagery
+- mobile presentation issues if mobile screenshots are attached
+
+Design language to preserve:
+- minimalist
+- editorial
+- architectural / atlas inspired
+- black and white line illustration language
+- off-white background
+- thin divider lines
+- calm and highly intentional
+
+Do not review the page as a full redesign task. Focus on illustration treatment and how the image relates to the rest of the composition.
+
+Avoid generic suggestions such as:
+- adding colorful accents
+- adding decorative effects
+- masking weak illustrations with trendy UI treatments
+- solving asset problems by adding more interface chrome
+
+Use this review loop for each illustration:
+1. judge the illustration in page context
+2. evaluate five checks:
+   - density
+   - tone
+   - scale
+   - safe area
+   - optical centering
+3. classify the main mismatch using one primary label:
+   - too dense
+   - too dark
+   - too large
+   - too small
+   - off-center
+   - background mismatch
+   - style mismatch
+4. recommend the smallest normalization change with the highest payoff
+
+When suggesting changes:
+- prefer asset normalization before layout changes
+- distinguish between problems that should be fixed in the source asset and problems that should be fixed in CSS or markup
+- keep suggestions restrained and specific
+- explain why each recommendation improves coherence with the site's editorial design language
+
+Structure the review as:
+1. Overall illustration assessment
+2. Issues by screenshot
+3. Cross-site illustration consistency issues
+4. Normalization priorities
+5. Asset fixes vs CSS/layout fixes

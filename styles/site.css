@@ -1595,6 +1595,8 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
 }
 
 .editorial-archive-title {
+  border-bottom: 0;
+  padding-bottom: 0;
   max-width: none;
   margin: 0;
   font-family: var(--serif);
