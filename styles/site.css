@@ -495,6 +495,11 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   height: auto;
 }
 
+.home-hero-figure picture {
+  display: block;
+  width: 100%;
+}
+
 .home-hero-figure p,
 .home-hero-actions p,
 .home-section-header p {
@@ -1858,7 +1863,7 @@ body:is(.home-page, .posts-index-page, .projects-index-page, .courses-index-page
   }
 
   .home-hero-figure {
-    display: none;
+    display: flex;
   }
 
   .home-project-card-body,
@@ -2486,4 +2491,102 @@ body.writing-page #title-block-header .quarto-title-meta {
 .code-plot-cell img { width: 100%; height: auto; }
 @media (max-width: 800px) {
   .code-plot-row { grid-template-columns: 1fr; }
+}
+
+/* A portrait of Palacio Salvo anchors the mobile homepage. */
+@media (max-width: 640px) {
+  .home-page {
+    background: var(--paper-panel);
+  }
+
+  .home-page main.content {
+    width: 100%;
+  }
+
+  .home-shell {
+    padding: 1.5rem 1.5rem 2.5rem;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .home-hero-copy {
+    text-align: center;
+  }
+
+  .home-hero-copy h1 {
+    max-width: 10ch;
+    margin: 0 auto 0.8rem;
+    font-size: clamp(2.75rem, 12vw, 4rem);
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  .home-hero-deck {
+    margin: 0 auto;
+    font-size: 1.15rem;
+  }
+
+  .home-hero-figure {
+    min-height: 0;
+    width: min(100%, 23rem);
+    margin: 0 auto;
+  }
+
+  .home-hero-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  .home-hero-figure picture {
+    mix-blend-mode: multiply;
+  }
+
+  .home-lower-grid {
+    gap: 0;
+  }
+
+  .home-section {
+    padding-top: 2rem;
+  }
+
+  .home-section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .home-section-link {
+    white-space: nowrap;
+    font-size: 0.7rem;
+  }
+
+  .home-writing-title,
+  .home-project-title {
+    overflow-wrap: anywhere;
+  }
+
+  .home-page .site-footer-callout {
+    padding-inline: 1.5rem;
+  }
+
+  .home-page .navbar-toggler {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .home-page .navbar-toggler:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
 }

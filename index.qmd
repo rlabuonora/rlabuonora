@@ -42,7 +42,10 @@ listing:
 </div>
 
 <div class="home-hero-figure site-illustration site-illustration--skyline">
-<img src="assets/raw/mvd-hero.png" alt="Ilustración de la costa de Montevideo" class="home-hero-image site-illustration-image site-illustration-image--skyline">
+<picture>
+<source media="(max-width: 640px)" srcset="assets/mobile-salvo-transparent.png">
+<img src="assets/raw/mvd-hero.png" alt="Ilustración de la arquitectura de Montevideo" class="home-hero-image site-illustration-image site-illustration-image--skyline">
+</picture>
 </div>
 </div>
 
