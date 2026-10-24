@@ -9,6 +9,7 @@ project:
     - "!drafts/**"
   resources:
     - assets/posts/**
+    - assets/mobile-salvo-transparent.png
 
 website:
   title: "Rafael La Buonora"
