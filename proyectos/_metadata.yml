@@ -1,6 +1,6 @@
 format:
   html:
-    page-layout: full
-    body-classes: project-page
+    page-layout: article
+    body-classes: writing-page
 
-# Project pages should read more like case studies than essays.
+# Projects share the same reading layout as blog posts.

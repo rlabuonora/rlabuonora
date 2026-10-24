@@ -13,8 +13,6 @@ tags:
   - analytics
   - AWS
 image: assets/projects/fucrea/diagrama_2.png
-links:
-  video: https://www.youtube.com/watch?v=PIhd73jFZZQ
 ---
 
 ## El proyecto
@@ -65,4 +63,4 @@ Este proyecto me obligo a disenar la visualizacion y la arquitectura al mismo ti
 
 ## Enlaces relacionados
 
-- La charla de LatinR incluida en los enlaces resume la implementacion con bastante mas detalle.
+- [La charla de LatinR](https://www.youtube.com/watch?v=PIhd73jFZZQ)

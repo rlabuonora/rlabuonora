@@ -7,8 +7,8 @@ Write content in Quarto (`.qmd`) and keep filenames stable so existing URLs cont
 
 Use `title`, `summary`, `lang` (`es` or `en`), and `tags` on collection items.
 Projects use `year` and `content_type: build`; notes and courses use `date` and
-`content_type: learn` or `reflect`. The content type selects the detail layout;
-it is not displayed to readers.
+`content_type: learn` or `reflect`. All three use the same reading layout;
+the content type is not displayed to readers.
 
 All publishable items currently have `access: public`. This field filters listings,
 not the rendered output: it is not an access-control mechanism. Keep unpublished
@@ -26,11 +26,10 @@ Other historical tier values can remain in metadata but have no special index la
 
 ## Detail pages
 
-Projects show their summary, year, language, tags, and optional `links` (`demo`,
-`repo`, `blog`, `video`). Add real screenshots in the body when useful. Internal
-access/tier fields and image filenames are not displayed.
-
-Notes and courses use a reading layout with a summary, date, language, and tags.
+Projects, notes, and courses use a reading layout with a summary, date (or project
+year), language, and tags. Put project links in the body, under an
+`Enlaces relacionados` heading at the end when appropriate. Add real screenshots
+in the body when useful. Internal access/tier fields and image filenames are not displayed.
 Keep existing English articles in English and Spanish articles in Spanish.
 The site navigation is Spanish.
 

@@ -95,128 +95,6 @@ local function lang_badge(lang)
   )
 end
 
-local function project_label(text)
-  local labels = {
-    Year = "Año",
-    Language = "Idioma",
-    Type = "Tipo",
-    Access = "Acceso",
-    Tier = "Nivel",
-    Tags = "Etiquetas",
-    Image = "Imagen",
-    Links = "Enlaces"
-  }
-
-  return labels[text] or text
-end
-
-local function project_value(key, value)
-  local translations = {
-    content_type = {
-      build = "proyecto",
-      learn = "aprendizaje",
-      reflect = "reflexion"
-    },
-    access = {
-      public = "publico",
-      private = "privado",
-      bounded = "acotado"
-    },
-    tier = {
-      flagship = "principal",
-      featured = "destacado",
-      standard = "estandar",
-      archive = "archivo"
-    }
-  }
-
-  if translations[key] and translations[key][value] then
-    return translations[key][value]
-  end
-
-  return value
-end
-
-local function blocks_for_project(meta)
-  local blocks = pandoc.List()
-  local summary = stringify(meta_value(meta, "summary"))
-  local year = stringify(meta_value(meta, "year"))
-  local lang = stringify(meta_value(meta, "lang"))
-  local content_type = stringify(meta_value(meta, "content_type"))
-  local access = stringify(meta_value(meta, "access"))
-  local tier = stringify(meta_value(meta, "tier"))
-  local tags = meta_list(meta_value(meta, "tags"))
-  local image = stringify(meta_value(meta, "image"))
-  local links = meta_value(meta, "links")
-
-
-
-  local meta_items = pandoc.List()
-  if year and year ~= "" then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Year")) }),
-        pandoc.Para({ pandoc.Str(year) })
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
-
-  local language_badge = lang_badge(lang)
-  if language_badge then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Language")) }),
-        pandoc.Para({ language_badge })
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
-
-
-  if #tags > 0 then
-    meta_items:insert(
-      pandoc.Div({
-        pandoc.Para({ pandoc.Str(project_label("Tags")) }),
-        pandoc.Para(inline_list_with_separator(tags, "/"))
-      }, pandoc.Attr("", { "project-meta-item" }))
-    )
-  end
-
-
-  local details = meta_value(meta, "project-details")
-  local show_details = details ~= false and stringify(details) ~= "false"
-  if show_details and #meta_items > 0 then
-    blocks:insert(pandoc.Div(meta_items, pandoc.Attr("", { "project-meta-grid" })))
-  end
-
-  if show_details and links and type(links) == "table" then
-    local link_items = pandoc.List()
-    local link_order = { "demo", "repo", "blog", "video" }
-    local link_labels = {
-      demo = "Demo",
-      repo = "Repo",
-      blog = "Blog",
-      video = "Video"
-    }
-
-    for _, key in ipairs(link_order) do
-      local href = stringify(links[key])
-      if href and href ~= "" then
-        link_items:insert(
-          pandoc.Plain({
-            pandoc.Link(inline_text(link_labels[key]), href)
-          })
-        )
-      end
-    end
-
-    if #link_items > 0 then
-      blocks:insert(make_section_heading(project_label("Links")))
-      blocks:insert(pandoc.Div({ pandoc.BulletList(link_items) }, pandoc.Attr("", { "project-links-block" })))
-    end
-  end
-
-  return blocks
-end
 
 local function related_blocks(meta)
   local blocks = pandoc.List()
@@ -269,7 +147,7 @@ end
 local function blocks_for_writing(meta)
   local blocks = pandoc.List()
   local summary = stringify(meta_value(meta, "summary"))
-  local date = stringify(meta_value(meta, "date"))
+  local date = stringify(meta_value(meta, "date")) or stringify(meta_value(meta, "year"))
   local lang = stringify(meta_value(meta, "lang"))
   local content_type = stringify(meta_value(meta, "content_type"))
   local tags = meta_list(meta_value(meta, "tags"))
@@ -308,14 +186,7 @@ local function blocks_for_writing(meta)
 end
 
 function Pandoc(doc)
-  if is_project_page(doc.meta) then
-    local intro = blocks_for_project(doc.meta)
-    intro:extend(doc.blocks)
-    doc.blocks = intro
-    return doc
-  end
-
-  if is_writing_page(doc.meta) then
+  if is_project_page(doc.meta) or is_writing_page(doc.meta) then
     local intro = blocks_for_writing(doc.meta)
     local tail = related_blocks(doc.meta)
     intro:extend(doc.blocks)
