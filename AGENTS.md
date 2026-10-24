@@ -1,13 +1,13 @@
 # Personal site
 
-This is the sole active site repository: `https://github.com/rlabuonora/blog_2`.
-The local checkout is `/home/rlabuonora/code/personal-site`.
+This is the sole active site repository: `https://github.com/rlabuonora/rlabuonora`.
+It was renamed from `blog_2`; the local checkout is `/Users/rafa/Desktop/code/blog_2`.
 Netlify deploys `master` to `https://www.rlabuonora.com` using `netlify.toml`,
 `bash scripts/netlify-build.sh`, Quarto 1.9.38 and output directory `_site/`.
 
 Before committing or publishing, check `git remote -v` and `git branch --show-current`.
-Use this repository for all site changes; the archived `rlabuonora/rlabuonora`
-repository and `archive/rlabuonora-main` branch are historical references only.
+Use this repository for all site changes. The former development repository was
+deleted before this repository took its name; `archive/rlabuonora-main` is historical only.
 Keep the archive branch and `archive/rlabuonora-2026-09-14` tag intact.
 
 Follow `docs/content-model.md`. Preserve `_redirects`, the production URL and

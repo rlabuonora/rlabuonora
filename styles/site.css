@@ -2555,7 +2555,7 @@ body.writing-page #title-block-header .quarto-title-meta {
   }
 
   .home-section {
-    padding-top: 2rem;
+    padding-top: 2.75rem;
   }
 
   .home-section-header {
@@ -2566,6 +2566,12 @@ body.writing-page #title-block-header .quarto-title-meta {
     margin-bottom: 0.5rem;
   }
 
+  .home-section-header h2 {
+    font-size: clamp(2.35rem, 10vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
   .home-section-link {
     white-space: nowrap;
     font-size: 0.7rem;
@@ -2573,6 +2579,8 @@ body.writing-page #title-block-header .quarto-title-meta {
 
   .home-writing-title,
   .home-project-title {
+    font-size: 1.55rem;
+    line-height: 1.15;
     overflow-wrap: anywhere;
   }
 

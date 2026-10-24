@@ -18,8 +18,8 @@ conventions and `docs/post-migration.md` for the post migration inventory.
 
 ## Canonical repository and publishing
 
-- Repository: https://github.com/rlabuonora/blog_2
-- Local checkout: `/home/rlabuonora/code/personal-site`
+- Repository: https://github.com/rlabuonora/rlabuonora (formerly `blog_2`)
+- Local checkout: `/Users/rafa/Desktop/code/blog_2`
 - Production branch: `master`
 - Production site: https://www.rlabuonora.com
 - Netlify build: `bash scripts/netlify-build.sh`; publish directory: `_site/`.
@@ -31,7 +31,8 @@ For larger changes, use a pull request and review its Netlify Deploy Preview whe
 
 ## Preserved history
 
-The former `rlabuonora/rlabuonora` site development repository is archived.
+The former `rlabuonora/rlabuonora` site development repository was deleted so
+this canonical repository could be renamed from `blog_2` to `rlabuonora`.
 Its complete `main` history ending at `3a7989e46a68167412c82d82567f85528773f40d`
 is preserved here as branch `archive/rlabuonora-main` and tag
 `archive/rlabuonora-2026-09-14`. No existing history was rewritten.
