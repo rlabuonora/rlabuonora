@@ -2480,6 +2480,13 @@ body.writing-page #title-block-header .quarto-title-meta {
   }
 }
 
+/* Wide examples stay centered, with gutters outside the reading column. */
+.writing-page .column-page:has(> .code-plot-row) {
+  width: calc(100% - clamp(3rem, 8vw, 8rem));
+  max-width: 1200px;
+  justify-self: center;
+}
+
 .code-plot-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2490,6 +2497,7 @@ body.writing-page #title-block-header .quarto-title-meta {
 .code-plot-cell { min-width: 0; }
 .code-plot-cell img { width: 100%; height: auto; }
 @media (max-width: 800px) {
+  .writing-page .column-page:has(> .code-plot-row) { width: 100%; }
   .code-plot-row { grid-template-columns: 1fr; }
 }
 
