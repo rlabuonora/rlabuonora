@@ -1,7 +1,7 @@
 ---
 title: "Un juego para aprender geografía"
 slug: del-codigo-al-juego
-summary: "Un juego de geografía construido con Codex y las preguntas que abrió sobre programación y aprendizaje."
+summary: "Vibecodié uno de esos proyectos que siempre quise hacer y nunca tuve tiempo."
 date: 2026-03-01
 lang: es
 draft: false
