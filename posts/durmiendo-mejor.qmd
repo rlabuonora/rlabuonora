@@ -11,15 +11,11 @@ tags:
   - datos
 ---
 
-Como tanta gente, caí en la onda del *quantified self*. Me encanta mirar grafiquitos de colores sobre el funcionamiento de mi cuerpo. La app de WHOOP es excelente para eso.
-
-Hace un par de meses estoy tratando de mejorar el sueño. Me pasaba que me despertaba demasiado temprano y tenía la sensación de que eso estaba mejorando. Exporté los datos para ver cómo vengo y encontré esto:
+Como tanta gente, caí en la onda del *quantified self*. Suena algo narcisista, pero me encanta mirar grafiquitos de colores sobre el funcionamiento de mi cuerpo. La app de WHOOP es excelente para eso. Una de las cosas problemas que tengo hace años es que me despierto muy temprano. Además de que duermo poco, me genera problemas cuando se espera que sea un humano funcional después de las 10 de la noche. 
+Este año hice unos cambios y noté una mejoría importante. Exporté los datos para ver si es real y encontré esto:
 
 ::: {style="padding-top: 1.5rem;"}
 ![](/assets/posts/durmiendo-mejor/hora_despertar_tiempo_dormido.png){fig-alt="Dos gráficos de sueño entre noviembre de 2025 y septiembre de 2026. La hora de despertar sube durante mayo, junio y julio y luego se estabiliza cerca de las siete. El tiempo dormido también aumenta respecto de los primeros meses."}
 :::
 
-Cada punto es una noche y las líneas muestran el promedio de los últimos 14 días. Arriba, a qué hora me despierto; abajo, cuánto duermo.
-
-
-Buenísimo.
+Cada punto es una noche y las líneas muestran el promedio de los últimos 14 días. Arriba, a qué hora me despierto; abajo, cuánto duermo. El cambio parece ser real.
