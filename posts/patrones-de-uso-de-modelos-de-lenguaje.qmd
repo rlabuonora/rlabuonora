@@ -11,11 +11,11 @@ tags:
   - ai
 ---
 
-Los modelos de lenguaje son la tecnologia que estabamos esperando. No sabemos si vinieron a salvarnos o a confirmar nuestra obsolecencia pero es imposible permanecer ajeno a lo que estan haciendo y preguntarse que implican para el futuro. En este posteo anoto **cuatro patrones** que uso seguido.
+Los modelos de lenguaje son la tecnología que estabamos esperando. No sabemos si vinieron a salvarnos o a confirmar nuestra obsolecencia pero es imposible permanecer ajeno a lo que estan haciendo y preguntarse que implican para el futuro. En este posteo anoto **cuatro patrones** que me sirven para pensar en que son útiles estos productos.
 
 ## El Minion
 
-Algunos les dicen por favor y gracias, pero solo los usan para evitar tareas ingratas. Claude Code esta prendiendo fuego X estos dias, encaja perfecto en este patron: hace el trabajo duro, repetitivo y poco glamoroso sin quejarse. Yo pase hace poco de copiar y pegar codigo de ChatGPT a Codex en Visual Studio y quede de cara.
+Algunos les dicen por favor y gracias, pero solo los usan para evitar tareas ingratas. Claude Code esta prendiendo fuego X estos dias, encaja perfecto en este patrón: hace el trabajo duro, repetitivo y poco glamoroso sin quejarse. Yo pasé hace poco de copiar y pegar código de ChatGPT a Codex en Visual Studio y quede de cara.
 
 En el pasado hubo varios intentos de crear tecnologias que permitieran programar con lenguaje natural, pero todas fracasaron. Todas las tecnologias que conozco para darle instrucciones a la computadora se basan en abstracciones a niveles mucho mas bajos que el lenguaje natural.
 
