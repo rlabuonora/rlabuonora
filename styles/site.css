@@ -2598,3 +2598,29 @@ body.writing-page #title-block-header .quarto-title-meta {
     outline-offset: 3px;
   }
 }
+
+/* Article conversation excerpts. */
+.chat-transcript {
+  margin-block: 2rem;
+  padding-block: 1.5rem;
+  border-block: 1px solid var(--rule);
+  font-size: 0.95em;
+}
+.chat-transcript > div + div { margin-top: 1.5rem; }
+.chat-question {
+  margin-left: clamp(0rem, 5vw, 3rem);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: var(--paper-panel);
+  border: 1px solid var(--rule);
+}
+.chat-answer { padding-inline: 0.25rem; }
+.chat-transcript > div > p:first-child {
+  margin-bottom: 0.6rem;
+  color: var(--muted-ink);
+  font-family: var(--sans);
+  font-size: 0.8em;
+  letter-spacing: 0.04em;
+}
+.chat-transcript > div > :last-child { margin-bottom: 0; }
+.chat-transcript .math.display { overflow-x: auto; }
