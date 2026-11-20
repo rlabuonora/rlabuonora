@@ -14,6 +14,6 @@ tags:
 ---
 
 Esta app surgió en una charla sobre [este proyecto](https://www.politicaspublicas.uy/), alguien decía que era como Wikipedia con gráficos lindos.
-Siempre tuve algo con las caras y los nombres, y me di cuenta de que no tengo las caras de los famosos de la historia uruguaya (tipo pre 1950). Entonces la idea fue armar un quién es quién con los datos de Wikipedia de personalidades Uruguayas. [Jugá acá](https://caras-uy.netlify.app/)
+Siempre tuve algo con las caras y los nombres, y me di cuenta de que no tengo las caras de los famosos de la historia uruguaya (tipo pre-1950). Entonces la idea fue armar un quién es quién con los datos de Wikipedia de personalidades Uruguayas. [Jugá acá.](https://caras-uy.netlify.app/)
 
 [![Una ronda de caras-uy: elegí el retrato de José Serrato entre cuatro opciones.](caras-uy.png){fig-alt="Captura de caras-uy con cuatro retratos y el puntaje de la ronda."}](https://caras-uy.netlify.app/)
