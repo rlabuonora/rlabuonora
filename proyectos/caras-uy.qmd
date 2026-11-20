@@ -6,7 +6,7 @@ year: 2026
 lang: es
 content_type: build
 access: public
-tier: standard
+tier: flagship
 tags:
   - juegos
   - historia

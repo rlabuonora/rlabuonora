@@ -6,7 +6,7 @@ year: 2024
 lang: es
 content_type: build
 access: public
-tier: flagship
+tier: standard
 tags:
   - shiny
   - R
